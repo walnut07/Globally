@@ -16,7 +16,7 @@ const Selector: React.FC<Props> = ({title, inputType, isOption}) => {
   const [selectedCountry, setSelectedCountry] = useState<string>("");
   const [cityForm, setCityForm] = useState<any>();
   
-  // get country data
+  // get country data on initial load
   useEffect(() => {
     axios.get(`${BASE_URL}/country`)
     .then((res: any) => {
@@ -29,6 +29,7 @@ const Selector: React.FC<Props> = ({title, inputType, isOption}) => {
     });
   }, []);
 
+  // get city data on change of country selection
   const getCity = (e: any) =>  {
     const country = e.target.value;
     setSelectedCountry(country);
@@ -46,6 +47,7 @@ const Selector: React.FC<Props> = ({title, inputType, isOption}) => {
     });
   }, [selectedCountry]);
 
+  // make cities appear once fetching city data
   useEffect(() => {
     const select = 
       <select name={title} className={title}> 
