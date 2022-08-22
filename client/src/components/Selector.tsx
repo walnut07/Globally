@@ -64,7 +64,7 @@ const Selector: React.FC<Props> = ({title, inputType, isOption}) => {
       <label htmlFor={title}>{title}</label>
 
       {isOption && 
-        <select name={title} onChange={getCity} className={title} value={title}> 
+        <select name={title} onChange={getCity} className={title}> 
           {countries.map(country => {
             return <option value={country}>{country}</option>
           })}
