@@ -7,14 +7,19 @@ type Props = {
   className?: string,
   title: string,
   inputType: string,
-  isOption: boolean
+  isOption: boolean,
+  setCities: string[],
+  setCountries: string[],
+  setSelectedCountry?: string,
+  setCityForm: any
+  cities: string[],
+  countries: string[],
+  selectedCountry: string,
+  cityForm: any
 }
 
-const Selector: React.FC<Props> = ({title, inputType, isOption}) => {
-  const [cities, setCities] = useState<string[]>([]);
-  const [countries, setCountries] = useState<string[]>([]);
-  const [selectedCountry, setSelectedCountry] = useState<string>("");
-  const [cityForm, setCityForm] = useState<any>();
+const Selector: React.FC<Props> = ({title, inputType, isOption, setCities, setCountries, setSelectedCountry, setCityForm,
+  cities, countries, selectedCountry, cityForm}) => {
   
   // get country data on initial load
   useEffect(() => {
