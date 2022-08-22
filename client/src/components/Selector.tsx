@@ -51,8 +51,8 @@ const Selector: React.FC<Props> = ({title, inputType, isOption}) => {
   useEffect(() => {
     const select = 
       <select name={title} className={title}> 
-        {cities.map(country => {
-          return <option value={country}>{country}</option>
+        {cities.map(city => {
+          return <option value={city}>{city}</option>
         })}
     </select>
     setCityForm(select);
@@ -64,7 +64,7 @@ const Selector: React.FC<Props> = ({title, inputType, isOption}) => {
       <label htmlFor={title}>{title}</label>
 
       {isOption && 
-        <select name={title} onChange={getCity} className={title}> 
+        <select name={title} onChange={getCity} className={title} value={title}> 
           {countries.map(country => {
             return <option value={country}>{country}</option>
           })}

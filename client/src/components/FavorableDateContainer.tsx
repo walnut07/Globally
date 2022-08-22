@@ -1,16 +1,14 @@
-// import "./Header.css";
 import Selector from "./Selector";
 
-const SelectorWrapper = () => {
+const FavorableDateContainer= () => {
   return (
-    <section className="date-selector-wrapper">
-      <h2>Your favorable date:</h2>
+    <form>
       <Selector title="Area" inputType="text" isOption={true}/>
       <Selector title="Date" inputType="date" isOption={false}/>
       <Selector title="Start time" inputType="time" isOption={false}/>
       <Selector title="End time" inputType="time" isOption={false}/>
-    </section>
+    </form>
   );
 };
 
-export default SelectorWrapper;
+export default FavorableDateContainer;
