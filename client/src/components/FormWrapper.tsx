@@ -28,7 +28,9 @@ const FormWrapper = () => {
         startTime: startTime,
         endTime: endTime,
         attendeeCountry1: attendeeCountry1,
-        attendeeCity1: attendeeCity1
+        attendeeCity1: attendeeCity1,
+        attendeeCountry2: attendeeCountry2,
+        attendeeCity2: attendeeCity2
       }
     })
     .then((res) => {
