@@ -11,7 +11,7 @@ module.exports = {
     connection: {
       host: process.env.DB_HOST || "127.0.0.1",
       port: process.env.DB_PORT || 5432,
-      database: process.env.DB_NAME || "kanjify",
+      database: process.env.DB_NAME || "globally",
       user: process.env.DB_USER,
     },
     migrations: { directory: "./migrations" },
