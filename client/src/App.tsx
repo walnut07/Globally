@@ -61,16 +61,19 @@ function App() {
 
     <div className="App">
       <Header />
+
       {!isLoggedIn 
         && <Login setUser={setUser} setToken={setToken} setIsLoggedIn={setIsLoggedIn}/>}
 
       {isLoggedIn 
         && <p>Hi, {user["_delegate"]["displayName"]}!</p>}
+
       <FormWrapper setIsDataCollected={setIsDataCollected} setConvertedStartTime={setConvertedStartTime} 
         setConvertedEndTime={setConvertedEndTime} setAttendeeAreas={setAttendeeAreas} setUserStartTime={setUserstartTime}
         setUserEndTime={setUserEndTime} setUserDate={setUserDate} setUserArea={setUserArea} 
         />
-      {copyArea && copyArea}
+        
+      {copyArea}
     </div>
   );
 }
