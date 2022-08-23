@@ -6,6 +6,7 @@ import { useState } from "react";
 import moment from "moment";
 import Login from "./components/Login";
 import firebase from "firebase/compat/app";
+import Save from "./components/Save";
 
 function App() {
   const [isDataCollected, setIsDataCollected] = useState<boolean>(false);
@@ -72,8 +73,10 @@ function App() {
         setConvertedEndTime={setConvertedEndTime} setAttendeeAreas={setAttendeeAreas} setUserStartTime={setUserstartTime}
         setUserEndTime={setUserEndTime} setUserDate={setUserDate} setUserArea={setUserArea} 
         />
-        
+
       {copyArea}
+
+      {isLoggedIn && copyArea !== null && <Save /> }
     </div>
   );
 }
