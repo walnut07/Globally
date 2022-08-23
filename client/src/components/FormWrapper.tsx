@@ -16,6 +16,8 @@ type Props = {
 const FormWrapper: React.FC<Props>= ({setIsDataCollected, setConvertedStartTime, setConvertedEndTime, setAttendeeAreas}) => {
 
   const handleSubmit = () => {
+    setIsDataCollected(false);
+    
     const userForm = document.forms[0];
     const country = userForm.Area[0].value;
     const city = userForm.Area[1].value;
@@ -49,7 +51,7 @@ const FormWrapper: React.FC<Props>= ({setIsDataCollected, setConvertedStartTime,
       const attendeeCities = data["attendeeCity"];
       const areasArr = [];
       for (let i = 0; i < attendeeCountries.length; i++) {
-        const area = attendeeCountries[i] + " " + attendeeCities[i];
+        const area = attendeeCities[i] + ", " + attendeeCountries[i];
         areasArr.push(area);
       }
       setAttendeeAreas(areasArr);
