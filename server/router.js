@@ -46,7 +46,7 @@ router.get("/converter", async (req, res) => {
   }
   const reqArr = [country, city, date, startTime, endTime, attendeeCount];
   if (reqArr.some(hasUndefined)) {
-    res.send("Please fill in the form");
+    res.send({error: "Please fill in the form"});
     return
   }
 
@@ -122,7 +122,7 @@ router.get("/converter", async (req, res) => {
 
     }
   }
-  
+
   // convert start times
   const convertedStartTimeArr = [];
   converter(attendeeCount, convertedStartTimeArr, attendeeTimeZoneArr, userUTCOffset, userIsAheadOfUTC, startDate);
