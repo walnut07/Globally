@@ -1,4 +1,4 @@
-// import "./Header.css";
+import "../Style.css";
 import axios from "axios";
 import UsersDateContainer from "./UsersDateContainer";
 import AttendeeTimeZoneContainer from "./AttendeeTimeZoneContainer";
@@ -79,11 +79,11 @@ const FormWrapper: React.FC<Props>= ({setIsDataCollected, setConvertedStartTime,
 
   return (
     <section className="form-wrapper">
-      <h2>Your favorable time:</h2>
+      <h3 className="instruction">Your favorable time:</h3>
         <UsersDateContainer />
-      <h2>Where the attendees are:</h2>
+      <h3 className="instruction">Where the attendees are:</h3>
         <AttendeeTimeZoneContainer />
-        <button type="button" onClick={handleSubmit}>Submit</button>
+      <button type="button" onClick={handleSubmit} className="convert">Convert</button>
     </section>
   );
 };

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "./App.css";
+import "./Style.css";
 import Header from "./components/Header";
 import FormWrapper from "./components/FormWrapper";
 import { useState } from "react";
@@ -60,7 +60,7 @@ function App() {
       const formattedStartTime = formatTime(convertedStartTimes, attendeeAreas);
       const copyAreaWrapper = 
         <div className="copyAreaWrapper">
-          <textarea value={formattedStartTime} />
+          <textarea value={formattedStartTime} id="textarea"/>
         </div>
       setCopyArea(copyAreaWrapper);
     }

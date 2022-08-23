@@ -1,5 +1,6 @@
 // import "./Header.css";
 import { useState, useEffect, HtmlHTMLAttributes } from "react";
+import "../Style.css";
 const axios = require('axios')
 const BASE_URL = process.env.PUBLIC_URL || "http://localhost:8000";
 
@@ -60,11 +61,11 @@ const Selector: React.FC<Props> = ({title, inputType, isOption}) => {
 
   
   return (
-    <div className={title}>
+    <div className={`${title} form-div`}>
       <label htmlFor={title}>{title}</label>
 
       {isOption && 
-        <select name={title} onChange={getCity} className={title} required> 
+        <select name={title} onChange={getCity} className={`${title}`} required> 
           {countries.map(country => {
             return <option value={country}>{country}</option>
           })}
