@@ -131,7 +131,7 @@ router.get("/converter", async (req, res) => {
   const convertedEndTimeArr = [];
   converter(attendeeCount, convertedEndTimeArr, attendeeTimeZoneArr, userUTCOffset, userIsAheadOfUTC, endDate);
 
-  res.send({convertedStartTime: convertedStartTimeArr, convertedEndTime: convertedEndTimeArr});
+  res.send({convertedStartTime: convertedStartTimeArr, convertedEndTime: convertedEndTimeArr, attendeeCountry: attendeeCountryArr, attendeeCity: attendeeCityArr});
 })
 
 module.exports = router;
