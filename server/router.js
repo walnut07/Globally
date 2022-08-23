@@ -34,6 +34,16 @@ router.get("/converter", async (req, res) => {
   const endTime = body.endTime;
   const attendeeCount = 2
 
+  // return error if any of requests is undefined
+  const hasUndefined = (elem) => {
+    return elem == undefined;
+  }
+  const reqArr = [country, city, date, startTime, endTime, attendeeCount];
+  if (reqArr.some(hasUndefined)) {
+    res.send("Please fill in the form");
+    return
+  }
+
   // parse attendee data
   const attendeeCountryArr = [];
   const attendeeCityArr = [];
