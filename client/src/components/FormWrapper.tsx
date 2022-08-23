@@ -2,10 +2,18 @@
 import axios from "axios";
 import UsersDateContainer from "./UsersDateContainer";
 import AttendeeTimeZoneContainer from "./AttendeeTimeZoneContainer";
+import { useEffect, useState } from "react";
 
 const BASE_URL = process.env.PUBLIC_URL || "http://localhost:8000";
 
-const FormWrapper = () => {
+
+type Props = {
+  setIsDataCollected: Function,
+  setConvertedStartTime: Function,
+  setConvertedEndTime: Function
+}
+const FormWrapper: React.FC<Props>= ({setIsDataCollected, setConvertedStartTime, setConvertedEndTime}) => {
+
   const handleSubmit = () => {
     const userForm = document.forms[0];
     const country = userForm.Area[0].value;
@@ -34,7 +42,12 @@ const FormWrapper = () => {
       }
     })
     .then((res) => {
-      console.log(res);
+      const data = res.data;
+      const convertedStartTime = data["convertedStartTime"];
+      const convertedEndTime = data["convertedEndTime"];
+      setConvertedStartTime(convertedStartTime);
+      setConvertedEndTime(convertedEndTime);
+      setIsDataCollected(true);
     })
   }
 
