@@ -1,6 +1,6 @@
 import Selector from "./Selector";
 
-const FavorableDateContainer= () => {
+const UsersDateContainer= () => {
   return (
     <form>
       <Selector title="Area" inputType="text" isOption={true}/>
@@ -11,4 +11,4 @@ const FavorableDateContainer= () => {
   );
 };
 
-export default FavorableDateContainer;
+export default UsersDateContainer;
