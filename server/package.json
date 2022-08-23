@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "knex": "^2.2.0",
+    "nodemon": "^2.0.19",
+    "pg": "^8.7.3",
+    "router": "^1.3.7"
+  },
+  "name": "server",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate-latest": "npx knex migrate:latest --knexfile ./db/knexfile.js",
+    "migrate-down": "npx knex migrate:down --knexfile ./db/knexfile.js",
+    "seed-data": "npx knex seed:run --knexfile ./db/knexfile.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
