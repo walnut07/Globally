@@ -1,7 +1,19 @@
 const router = require("express").Router();
 const knex = require("./db/knex");
 const moment = require("moment");
-const e = require("express");
+const mongoose = require('mongoose');
+const Dates = require('./models/Dates');
+
+// ----- mongodb ------ //
+
+mongoose.connect('mongodb://127.0.0.1/dates');
+
+const db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'DB connection error:'));
+db.once('open', () => console.log('DB connection successful'));
+
+// ---------------------- //
 
 router.get("/", (req, res) => {
   res.status(200).send("This is Globally server");
