@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const knex = require("./db/knex");
+const moment = require("moment");
+const e = require("express");
 
 router.get("/", (req, res) => {
   res.status(200).send("This is Globally server");
@@ -33,6 +35,10 @@ router.get("/converter", async (req, res) => {
   const startTime = body.startTime;
   const endTime = body.endTime;
   const attendeeCount = 2
+  let startDate = new Date(date + " " + startTime);
+  let endDate = new Date(date + " " + endTime);
+  startDate = moment(startDate).format("LLL"); // example: August 20, 2022 1:31 PM
+  endDate = moment(endDate).format("LLL");
 
   // return error if any of requests is undefined
   const hasUndefined = (elem) => {
@@ -57,7 +63,7 @@ router.get("/converter", async (req, res) => {
   }
 
   // get user's timezone
-  const userTimeZone = await 
+  let userTimeZone = await 
     knex
     .where({
       country: `${country}`,
@@ -65,11 +71,15 @@ router.get("/converter", async (req, res) => {
     })
     .select("UTCOffset", "isAheadOfUTC")
     .from("UTC");
+  userTimeZone = userTimeZone[0];
+  let userUTCOffset = userTimeZone["UTCOffset"];
+  userUTCOffset = moment(userUTCOffset, "HH:mm:ss").format("HH:mm");
+  const userIsAheadOfUTC = userTimeZone["isAheadOfUTC"];
 
   // get attendee's timezones
   const attendeeTimeZoneArr = [];
   for (let i = 0; i < attendeeCount; i++) {
-    const timezone = await 
+    let timezone = await 
       knex
       .where({
         country: attendeeCountryArr[i],
@@ -77,20 +87,51 @@ router.get("/converter", async (req, res) => {
       })
       .select("UTCOffset", "isAheadOfUTC")
       .from("UTC");
-    attendeeTimeZoneArr.push(timezone);
+    timezone = timezone[0];
+    const UTCOffset = timezone["UTCOffset"];
+    const momentUTCOffset = moment(UTCOffset, "HH:mm:ss").format("HH:mm");
+    const IsAheadOfUTC = timezone["isAheadOfUTC"];
+    attendeeTimeZoneArr.push({UTCOffset: momentUTCOffset, IsAheadOfUTC: IsAheadOfUTC});
   }
  
   // convert the start/end time into different time zones
-  for (let i = 0; i < attendeeCount; i++) {
-    const attendeeTimeZoneObj = attendeeTimeZoneArr[i][0];
-    const attendeeUTCOffset = attendeeTimeZoneObj["UTCOffset"];
-    const isAheadOfUTC = attendeeTimeZoneObj["isAheadOfUTC"];
 
-    let attendeeStartTime;
-    console.log(attendeeUTCOffset, isAheadOfUTC);
+  // module
+  const converter = (attendeeCount, convertedTimeArr, attendeeTimeZoneArr, userUTCOffset, userIsAheadOfUTC, startOrEndDate) => {
+    for (let i = 0; i < attendeeCount; i++) {
+      const attendeeTimeZoneObj = attendeeTimeZoneArr[i];
+      const attendeeUTCOffset = attendeeTimeZoneObj["UTCOffset"];
+      const attendeeIsAheadOfUTC = attendeeTimeZoneObj["IsAheadOfUTC"];
+
+      let attendeeStartDate = startOrEndDate;
+      if (userIsAheadOfUTC && attendeeIsAheadOfUTC) {
+        attendeeStartDate = moment(attendeeStartDate).subtract(moment(userUTCOffset, "HH:mm").hours(), "hour");
+        attendeeStartDate = moment(attendeeStartDate).add(moment(attendeeUTCOffset, "HH:mm").hours(), "hour");
+      } else if (userIsAheadOfUTC && !attendeeIsAheadOfUTC) {
+        attendeeStartDate = moment(attendeeStartDate).subtract(moment(userUTCOffset, "HH:mm").hours(), "hour");
+        attendeeStartDate = moment(attendeeStartDate).subtract(moment(attendeeUTCOffset, "HH:mm").hours(), "hour");
+      } else if (!userIsAheadOfUTC && attendeeIsAheadOfUTC) {
+        attendeeStartDate = moment(attendeeStartDate).add(moment(userUTCOffset, "HH:mm").hours(), "hour");
+        attendeeStartDate = moment(attendeeStartDate).add(moment(attendeeUTCOffset, "HH:mm").hours(), "hour");
+      } else if (!userIsAheadOfUTC && !attendeeIsAheadOfUTC) {
+        attendeeStartDate = moment(attendeeStartDate).add(moment(userUTCOffset, "HH:mm").hours(), "hour");
+        attendeeStartDate = moment(attendeeStartDate).subtract(moment(attendeeUTCOffset, "HH:mm").hours(), "hour");
+      }
+
+    convertedTimeArr.push(attendeeStartDate);
+
+    }
   }
   
-  res.send([userTimeZone, attendeeTimeZoneArr]);
+  // convert start times
+  const convertedStartTimeArr = [];
+  converter(attendeeCount, convertedStartTimeArr, attendeeTimeZoneArr, userUTCOffset, userIsAheadOfUTC, startDate);
+
+  // convert end times
+  const convertedEndTimeArr = [];
+  converter(attendeeCount, convertedEndTimeArr, attendeeTimeZoneArr, userUTCOffset, userIsAheadOfUTC, endDate);
+
+  res.send({convertedStartTime: convertedStartTimeArr, convertedEndTime: convertedEndTimeArr});
 })
 
 module.exports = router;
