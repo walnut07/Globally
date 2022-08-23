@@ -128,7 +128,7 @@ To get a local copy up and running follow these simple example steps.
 * npm
   ```sh
   cd server
-  npm install cors dotenv express knex moment nodemon pg router
+  npm install cors dotenv express knex moment nodemon pg router mongodb
   npm run
   ```
   

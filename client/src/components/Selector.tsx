@@ -51,7 +51,7 @@ const Selector: React.FC<Props> = ({title, inputType, isOption}) => {
   // make cities appear once fetching city data
   useEffect(() => {
     const select = 
-      <select name={title} className={title} required> 
+      <select name={title} className={title}> 
         {cities.map(city => {
           return <option value={city}>{city}</option>
         })}
@@ -65,17 +65,17 @@ const Selector: React.FC<Props> = ({title, inputType, isOption}) => {
       <label htmlFor={title}>{title}</label>
 
       {isOption && 
-        <select name={title} onChange={getCity} className={`${title}`} required> 
+        <select name={title} onChange={getCity} className={`${title}`} defaultValue={"Select"}> 
           {countries.map(country => {
             return <option value={country}>{country}</option>
           })}
         </select>
       }
-      
+    
       {isOption && cityForm}
 
       {!isOption && 
-        <input type={inputType} name={title} required/>
+        <input type={inputType} name={title} />
       }
 
     </div>
