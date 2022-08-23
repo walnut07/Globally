@@ -1,3 +1,4 @@
+import "../Style.css";
 
 const Save = () => {
   return (

@@ -1,6 +1,7 @@
 // import { signInWithGoogle } from '../services/firebase';
 import firebase from 'firebase/compat/app';
 import {auth} from "../services/firebase"
+import "../Style.css";
 
 type Props = {
   setUser: Function
@@ -20,8 +21,8 @@ const Login: React.FC<Props> = ({setUser, setToken, setIsLoggedIn}) => {
     setIsLoggedIn(true);
 }
   return (
-    <div>
-      <button className="button" onClick={logInWithGoogle}><i className="login-button"></i>Sign in with google</button>
+    <div className='login-div'>
+      <button className="login-button" onClick={logInWithGoogle}>Sign in with google</button>
     </div>
   )
 }
