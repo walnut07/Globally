@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: #F9F5EB;
+}
+
+.App {
+  margin: 50px;
+  width: 90vw;
+  max-width: 600px;
+  margin: 0px auto;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+
+header {
+  margin: 70px;
+}
+
+h1 {
+  font-family: 'Aboreto', cursive;
+  text-align: center;
+  font-size: 40px;
+  color: #1C3879;
+}
+
+.instruction {
+  margin: 20px 0px;
+}
+
+.form-div {
+  margin: 20px;
+}
+
+select {
+  padding: 2px;
+  margin: 0px 3px;
+  border-radius: 7px;
+  border: none;
+  background-color: #EAE3D2;
+  color: #101F42;
+}
+
+input {
+  padding: 2px;
+  margin: 0px 3px;
+  border-radius: 7px;
+  border: none;
+  background-color: #EAE3D2;
+  color: #101F42;
+}
+
+label {
+  color: #101F42;
+}
+
+.convert {
+  padding: 3px;
+  margin: 10px auto;
+  width: 80%;
+  border-radius: 7px;
+  border: 1px #1f3466 solid;
+  background-color: #EAE3D2;
+}
+
+textarea {
+  padding: 10px;
+  margin: 0px 3px;
+  width: 80vw;
+  height: 30vh;
+  max-width: 600px;
+  border-radius: 7px;
+}
+
+.login-div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.login-button {
+  border-radius: 3px;
+  padding: 3px;
+  border: 1px #1f3466 solid;
+  background-color: #EAE3D2;
+}

@@ -1,4 +1,5 @@
 import firebase from 'firebase/compat/app';
+import "../Style.css";
 
 type Props = {
   setUser: Function
