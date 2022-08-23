@@ -43,6 +43,7 @@ const FormWrapper: React.FC<Props>= ({setIsDataCollected, setConvertedStartTime,
     })
     .then((res) => {
       const data = res.data;
+      console.log(data)
       const convertedStartTime = data["convertedStartTime"];
       const convertedEndTime = data["convertedEndTime"];
       setConvertedStartTime(convertedStartTime);
