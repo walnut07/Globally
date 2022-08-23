@@ -11,10 +11,18 @@ type Props = {
   setIsDataCollected: Function,
   setConvertedStartTime: Function,
   setConvertedEndTime: Function
+  setAttendeeAreas: Function
+  setUserStartTime: Function,
+  setUserEndTime: Function,
+  setUserDate: Function
+  setUserArea: Function,
 }
-const FormWrapper: React.FC<Props>= ({setIsDataCollected, setConvertedStartTime, setConvertedEndTime}) => {
+const FormWrapper: React.FC<Props>= ({setIsDataCollected, setConvertedStartTime, 
+  setConvertedEndTime, setAttendeeAreas, setUserStartTime: setUserstartTime, setUserEndTime, setUserDate, setUserArea,}) => {
 
   const handleSubmit = () => {
+    setIsDataCollected(false);
+
     const userForm = document.forms[0];
     const country = userForm.Area[0].value;
     const city = userForm.Area[1].value;
@@ -22,6 +30,12 @@ const FormWrapper: React.FC<Props>= ({setIsDataCollected, setConvertedStartTime,
     const startTime = userForm["Start time"].value;
     const endTime = userForm["End time"].value;
 
+    const area = `${city}, ${country}`
+    setUserArea(area);
+    setUserDate(date);
+    setUserstartTime(startTime);
+    setUserEndTime(endTime);
+    
     const attendeeForm = document.forms[1];
     const attendeeCountry1 = attendeeForm.Area[0].value;
     const attendeeCity1 = attendeeForm.Area[1].value;
@@ -43,10 +57,22 @@ const FormWrapper: React.FC<Props>= ({setIsDataCollected, setConvertedStartTime,
     })
     .then((res) => {
       const data = res.data;
-      const convertedStartTime = data["convertedStartTime"];
-      const convertedEndTime = data["convertedEndTime"];
-      setConvertedStartTime(convertedStartTime);
-      setConvertedEndTime(convertedEndTime);
+
+      // parse and format data
+      const attendeeCountries = data["attendeeCountry"];
+      const attendeeCities = data["attendeeCity"];
+      const areasArr = [];
+      for (let i = 0; i < attendeeCountries.length; i++) {
+        const area = attendeeCities[i] + ", " + attendeeCountries[i]; // example: "Tokyo, Japan"
+        areasArr.push(area);
+      }
+      setAttendeeAreas(areasArr);
+
+      const convertedStartTimes = data["convertedStartTime"];
+      const convertedEndTimes = data["convertedEndTime"];
+      setConvertedStartTime(convertedStartTimes);
+      setConvertedEndTime(convertedEndTimes);
+
       setIsDataCollected(true);
     })
   }
