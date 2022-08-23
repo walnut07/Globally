@@ -6,6 +6,10 @@ import { useState } from "react";
 import moment from "moment";
 import Login from "./components/Login";
 import firebase from "firebase/compat/app";
+import Save from "./components/Save";
+import RecommendLogin from "./components/RecommendLogin";
+import Logout from "./components/Logout";
+
 
 function App() {
   const [isDataCollected, setIsDataCollected] = useState<boolean>(false);
@@ -17,11 +21,19 @@ function App() {
   const [userEndTime, setUserEndTime] = useState<string>("");
   const [userArea, setUserArea] = useState<string>("");
   const [userDate, setUserDate] = useState<string>("");
-  const [user, setUser] = useState<any>("");
+  const [user, setUser] = useState<any>(null);
+  const [token, setToken] = useState<string>("");
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
+  // check login status
   useEffect(() => {
-    firebase.auth().onAuthStateChanged(user => {
-      setUser(user);
+    firebase.auth().onAuthStateChanged( async (user) => {
+      if (user) {
+        setUser(user);
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
     })
   }, [])
   
@@ -58,12 +70,25 @@ function App() {
 
     <div className="App">
       <Header />
-      <Login />
+
+      {!isLoggedIn 
+        && <Login setUser={setUser} setToken={setToken} setIsLoggedIn={setIsLoggedIn}/>}
+
+      {isLoggedIn && user
+        && <p>Hi, {user["_delegate"]["displayName"]}!</p>}
+
+      {isLoggedIn
+        && <Logout setUser={setUser} setToken={setToken} setIsLoggedIn={setIsLoggedIn}/>}
+        
       <FormWrapper setIsDataCollected={setIsDataCollected} setConvertedStartTime={setConvertedStartTime} 
         setConvertedEndTime={setConvertedEndTime} setAttendeeAreas={setAttendeeAreas} setUserStartTime={setUserstartTime}
         setUserEndTime={setUserEndTime} setUserDate={setUserDate} setUserArea={setUserArea} 
         />
-      {copyArea && copyArea}
+
+      {copyArea}
+
+      {isLoggedIn && copyArea !== null && <Save /> }
+      {!isLoggedIn && copyArea !== null && <RecommendLogin /> }
     </div>
   );
 }
