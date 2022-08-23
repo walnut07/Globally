@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import FormWrapper from "./components/FormWrapper";
 import { useState } from "react";
 import moment from "moment";
+import Login from "./components/Login";
+import firebase from "firebase/compat/app";
 
 function App() {
   const [isDataCollected, setIsDataCollected] = useState<boolean>(false);
@@ -15,7 +17,14 @@ function App() {
   const [userEndTime, setUserEndTime] = useState<string>("");
   const [userArea, setUserArea] = useState<string>("");
   const [userDate, setUserDate] = useState<string>("");
+  const [user, setUser] = useState<any>("");
 
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(user => {
+      setUser(user);
+    })
+  }, [])
+  
   // module
   const formatTime = (convertedTime: string[], attendeeAreas: string[]) :string =>  {
     const startTime = moment(`${userDate} ${userStartTime}`).format("YYYY-MM-DD hh:mm a");
@@ -49,6 +58,7 @@ function App() {
 
     <div className="App">
       <Header />
+      <Login />
       <FormWrapper setIsDataCollected={setIsDataCollected} setConvertedStartTime={setConvertedStartTime} 
         setConvertedEndTime={setConvertedEndTime} setAttendeeAreas={setAttendeeAreas} setUserStartTime={setUserstartTime}
         setUserEndTime={setUserEndTime} setUserDate={setUserDate} setUserArea={setUserArea} 
