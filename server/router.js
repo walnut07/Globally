@@ -32,13 +32,12 @@ router.get("/converter", async (req, res) => {
   const date = body.date;
   const startTime = body.startTime;
   const endTime = body.endTime;
-  const bodyLength = Object.keys(body).length;
-  const userInfoLength = 7;
+  const attendeeCount = 2
 
   // parse attendee data
   const attendeeCountryArr = [];
   const attendeeCityArr = [];
-  for (let i = 1; i <= bodyLength - userInfoLength; i++) {
+  for (let i = 1; i <= attendeeCount; i++) {
     const countryParam = `attendeeCountry${i}`
     const cityParam = `attendeeCity${i}`
     const country = body[countryParam];
@@ -59,7 +58,7 @@ router.get("/converter", async (req, res) => {
 
   // get attendee's timezones
   const attendeeTimeZoneArr = [];
-  for (let i = 0; i < bodyLength - userInfoLength; i++) {
+  for (let i = 0; i < attendeeCount; i++) {
     const timezone = await 
       knex
       .where({
@@ -70,7 +69,17 @@ router.get("/converter", async (req, res) => {
       .from("UTC");
     attendeeTimeZoneArr.push(timezone);
   }
+ 
+  // convert the start/end time into different time zones
+  for (let i = 0; i < attendeeCount; i++) {
+    const attendeeTimeZoneObj = attendeeTimeZoneArr[i][0];
+    const attendeeUTCOffset = attendeeTimeZoneObj["UTCOffset"];
+    const isAheadOfUTC = attendeeTimeZoneObj["isAheadOfUTC"];
 
+    let attendeeStartTime;
+    console.log(attendeeUTCOffset, isAheadOfUTC);
+  }
+  
   res.send([userTimeZone, attendeeTimeZoneArr]);
 })
 
