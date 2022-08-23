@@ -1,14 +1,3 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-<a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
 
 <!-- PROJECT SHIELDS -->
 <!--
@@ -22,28 +11,24 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/walnut07/Globally">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Globally - timezone converter - </h3>
 
   <p align="center">
-    project_description
+    Let's quickly arrange a global meeting with the help of Globally.
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/walnut07/Globally"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/walnut07/Globally/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/walnut07/Globally/issues">Request Feature</a>
   </p>
 </div>
 
@@ -82,8 +67,22 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+Globally quickly creates text so you can propose a meeting date even the attendees are in a different time zone.
 
+### Persona & User story
+<img src="images_doc/persona.jpeg" alt="Logo" width="80" height="80"><br>
+**Persona**<br>
+Briana Martin
+- 34 years old and working in France
+- Working for a trading company that imports many kinds of goods especially from Asia and South America
+<br>
+**User story**<br>
+She can propose her available date to her clients who live in different time zones.
+GIVEN her available time and her clients' time zones
+WHEN she inputs them
+THEN she should see the available time in the chosen time zones.
+
+<img src="images/logo.png" alt="Logo" width="80" height="80">
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
