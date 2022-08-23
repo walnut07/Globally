@@ -11,8 +11,9 @@ type Props = {
   setIsDataCollected: Function,
   setConvertedStartTime: Function,
   setConvertedEndTime: Function
+  setAttendeeAreas: Function
 }
-const FormWrapper: React.FC<Props>= ({setIsDataCollected, setConvertedStartTime, setConvertedEndTime}) => {
+const FormWrapper: React.FC<Props>= ({setIsDataCollected, setConvertedStartTime, setConvertedEndTime, setAttendeeAreas}) => {
 
   const handleSubmit = () => {
     const userForm = document.forms[0];
@@ -43,11 +44,21 @@ const FormWrapper: React.FC<Props>= ({setIsDataCollected, setConvertedStartTime,
     })
     .then((res) => {
       const data = res.data;
-      console.log(data)
-      const convertedStartTime = data["convertedStartTime"];
-      const convertedEndTime = data["convertedEndTime"];
-      setConvertedStartTime(convertedStartTime);
-      setConvertedEndTime(convertedEndTime);
+
+      const attendeeCountries = data["attendeeCountry"];
+      const attendeeCities = data["attendeeCity"];
+      const areasArr = [];
+      for (let i = 0; i < attendeeCountries.length; i++) {
+        const area = attendeeCountries[i] + " " + attendeeCities[i];
+        areasArr.push(area);
+      }
+      setAttendeeAreas(areasArr);
+      // console.log(attendearea)
+      const convertedStartTimes = data["convertedStartTime"];
+      const convertedEndTimes = data["convertedEndTime"];
+      setConvertedStartTime(convertedStartTimes);
+      setConvertedEndTime(convertedEndTimes);
+
       setIsDataCollected(true);
     })
   }

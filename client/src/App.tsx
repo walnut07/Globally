@@ -9,17 +9,17 @@ function App() {
   const [isDataCollected, setIsDataCollected] = useState<boolean>(false);
   const [copyArea, setCopyArea] = useState<JSX.Element|null>(null);
   const [convertedStartTimes, setConvertedStartTime] = useState<string[]>([]);
-  const [convertedEndTime, setConvertedEndTime] = useState<string[]>([]);
+  const [convertedEndTimes, setConvertedEndTime] = useState<string[]>([]);
+  const [attendeeAreas, setAttendeeAreas] = useState<string[]>([]);
 
   // module
-  const formatTime = (convertedTime: string[]) :string =>  {
+  const formatTime = (convertedTime: string[], attendeeAreas: string[]) :string =>  {
     let result = "Can we talk in the following time slot? \n";
     for (let i = 0; i < convertedTime.length; i++) {
       const converted = moment(convertedStartTimes[i]).format("YYYY-MM-DD hh:mm");
       console.log(converted)
       result += converted;
-      result += " ( )"
-
+      result += ` ${attendeeAreas[i]} `;
     }
 
     return result;
@@ -27,10 +27,10 @@ function App() {
 
   useEffect(() => {
     if (isDataCollected) {
-      const formattedStartTime = formatTime(convertedStartTimes);
+      const formattedStartTime = formatTime(convertedStartTimes, attendeeAreas);
       const copyAreaWrapper = 
         <div className="copyAreaWrapper">
-          <textarea value={formattedStartTime}></textarea>
+          <textarea value={formattedStartTime} />
         </div>
       setCopyArea(copyAreaWrapper);
     }
@@ -41,7 +41,7 @@ function App() {
     <div className="App">
       <Header />
       <FormWrapper setIsDataCollected={setIsDataCollected} setConvertedStartTime={setConvertedStartTime} 
-        setConvertedEndTime={setConvertedEndTime}/>
+        setConvertedEndTime={setConvertedEndTime} setAttendeeAreas={setAttendeeAreas}/>
       {copyArea && copyArea}
     </div>
   );
