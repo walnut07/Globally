@@ -18,6 +18,8 @@ function App() {
   const [userArea, setUserArea] = useState<string>("");
   const [userDate, setUserDate] = useState<string>("");
   const [user, setUser] = useState<any>("");
+  const [token, setToken] = useState<string>("");
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(user => {
@@ -58,7 +60,8 @@ function App() {
 
     <div className="App">
       <Header />
-      <Login />
+      {!isLoggedIn && <Login setUser={setUser} setToken={setToken} setIsLoggedIn={setIsLoggedIn}/>}
+      {isLoggedIn && <p>Hi, {user["_delegate"]["displayName"]}!</p>}
       <FormWrapper setIsDataCollected={setIsDataCollected} setConvertedStartTime={setConvertedStartTime} 
         setConvertedEndTime={setConvertedEndTime} setAttendeeAreas={setAttendeeAreas} setUserStartTime={setUserstartTime}
         setUserEndTime={setUserEndTime} setUserDate={setUserDate} setUserArea={setUserArea} 
