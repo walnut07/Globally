@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import FormWrapper from "./components/FormWrapper";
@@ -11,18 +11,27 @@ function App() {
   const [convertedStartTimes, setConvertedStartTime] = useState<string[]>([]);
   const [convertedEndTimes, setConvertedEndTime] = useState<string[]>([]);
   const [attendeeAreas, setAttendeeAreas] = useState<string[]>([]);
+  const [userStartTime, setUserstartTime] = useState<string>("");
+  const [userEndTime, setUserEndTime] = useState<string>("");
+  const [userArea, setUserArea] = useState<string>("");
+  const [userDate, setUserDate] = useState<string>("");
 
   // module
   const formatTime = (convertedTime: string[], attendeeAreas: string[]) :string =>  {
-    let result = "Can we talk in the following time slot? \n";
+    const startTime = moment(`${userDate} ${userStartTime}`).format("YYYY-MM-DD hh:mm a");
+    const endTime = moment(`${userDate} ${userEndTime}`).format("YYYY-MM-DD hh:mm a");
+
+    let text = `Can we talk in the following time slot? \n\n`;
+    text += `${startTime} ~ ${endTime} (${userArea}) \n`;
+
     for (let i = 0; i < convertedTime.length; i++) {
-      const converted = moment(convertedStartTimes[i]).format("YYYY-MM-DD hh:mm");
-      console.log(converted)
-      result += converted;
-      result += ` ${attendeeAreas[i]} `;
+      const convertedStartTime = moment(convertedStartTimes[i]).format("YYYY-MM-DD hh:mm a");
+      const convertedEndTime = moment(convertedEndTimes[i]).format("YYYY-MM-DD hh:mm a");
+      text += ` - ${convertedStartTime} ~ ${convertedEndTime}`;
+      text += ` (${attendeeAreas[i]}) \n`;
     }
 
-    return result;
+    return text;
   }
 
   useEffect(() => {
@@ -41,7 +50,9 @@ function App() {
     <div className="App">
       <Header />
       <FormWrapper setIsDataCollected={setIsDataCollected} setConvertedStartTime={setConvertedStartTime} 
-        setConvertedEndTime={setConvertedEndTime} setAttendeeAreas={setAttendeeAreas}/>
+        setConvertedEndTime={setConvertedEndTime} setAttendeeAreas={setAttendeeAreas} setUserStartTime={setUserstartTime}
+        setUserEndTime={setUserEndTime} setUserDate={setUserDate} setUserArea={setUserArea} 
+        />
       {copyArea && copyArea}
     </div>
   );
