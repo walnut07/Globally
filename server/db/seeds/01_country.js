@@ -7,6 +7,12 @@ exports.seed = async function(knex) {
   await knex('UTC').del()
   await knex('UTC').insert([
     {
+      country: 'Select a country',
+      city: 'Select a city',
+      UTCOffset: '00:00',
+      isAheadOfUTC: false
+    } ,
+    {
       country: 'Afghanistan',
       city: 'Kabul',
       UTCOffset: '04:30',

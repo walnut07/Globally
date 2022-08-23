@@ -3,7 +3,7 @@ import "../Style.css";
 const Save = () => {
   return (
     <article>
-      <button>Save</button>
+      <button className="save-button">Save</button>
     </article>
   );
 };
