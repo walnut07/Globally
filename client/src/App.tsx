@@ -7,7 +7,6 @@ import moment from "moment";
 import Login from "./components/Login";
 import firebase from "firebase/compat/app";
 import Save from "./components/Save";
-import RecommendLogin from "./components/RecommendLogin";
 import Logout from "./components/Logout";
 
 
@@ -72,7 +71,7 @@ function App() {
       <Header />
 
       {!isLoggedIn 
-        && <Login setUser={setUser} setToken={setToken} setIsLoggedIn={setIsLoggedIn}/>}
+        && <Login setUser={setUser} setToken={setToken} setIsLoggedIn={setIsLoggedIn} text="Log in with Google"/>}
 
       {isLoggedIn && user
         && <p>Hi, {user["_delegate"]["displayName"]}!</p>}
@@ -88,7 +87,7 @@ function App() {
       {copyArea}
 
       {isLoggedIn && copyArea !== null && <Save /> }
-      {!isLoggedIn && copyArea !== null && <RecommendLogin /> }
+      {!isLoggedIn && copyArea !== null && <Login setUser={setUser} setToken={setToken} setIsLoggedIn={setIsLoggedIn} text="Log in and save it" /> }
     </div>
   );
 }

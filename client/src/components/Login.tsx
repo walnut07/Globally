@@ -4,12 +4,13 @@ import {auth} from "../services/firebase"
 import "../Style.css";
 
 type Props = {
-  setUser: Function
-  setToken: Function
-  setIsLoggedIn: Function
+  setUser: Function,
+  setToken: Function,
+  setIsLoggedIn: Function,
+  text: string
 }
 
-const Login: React.FC<Props> = ({setUser, setToken, setIsLoggedIn}) => {
+const Login: React.FC<Props> = ({setUser, setToken, setIsLoggedIn, text}) => {
 
   const logInWithGoogle = async () => {
     const provider = new firebase.auth.GoogleAuthProvider()
@@ -22,7 +23,7 @@ const Login: React.FC<Props> = ({setUser, setToken, setIsLoggedIn}) => {
 }
   return (
     <div className='login-div'>
-      <button className="login-button" onClick={logInWithGoogle}>Sign in with google</button>
+      <button className="login-button" onClick={logInWithGoogle}>{text}</button>
     </div>
   )
 }
