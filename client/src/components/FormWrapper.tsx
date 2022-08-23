@@ -1,6 +1,6 @@
 // import "./Header.css";
 import axios from "axios";
-import FavorableDateContainer from "./FavorableDateContainer";
+import UsersDateContainer from "./UsersDateContainer";
 import AttendeeTimeZoneContainer from "./AttendeeTimeZoneContainer";
 
 const BASE_URL = process.env.PUBLIC_URL || "http://localhost:8000";
@@ -39,9 +39,9 @@ const FormWrapper = () => {
   }
 
   return (
-    <section className="date-selector-wrapper">
+    <section className="form-wrapper">
       <h2>Your favorable time:</h2>
-        <FavorableDateContainer />
+        <UsersDateContainer />
       <h2>Where the attendees are:</h2>
         <AttendeeTimeZoneContainer />
         <button type="button" onClick={handleSubmit}>Submit</button>
