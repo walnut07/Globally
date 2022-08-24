@@ -1,3 +1,5 @@
+const Attendee = require("./models/postgre/Attendee");
+const moment = require("moment");
 
 module.exports = {
   hasUndefined: function (elem) {
@@ -18,5 +20,19 @@ module.exports = {
     }
 
     return [attendeeCountryArr, attendeeCityArr];
+  },
+
+  getAttendeeTimezone: function (attendeeCount, attendeeCountryArr, attendeeCityArr) {
+    const attendeeTimeZoneArr = [];
+
+    for (let i = 0; i < attendeeCount; i++) {
+      const timezoneArr = await Attendee.getTimezone(attendeeCountryArr[i], attendeeCityArr[i]);
+      const timezone = timezoneArr[0];
+      const unformattedUTCOffset = timezone["UTCOffset"];
+      const attendeeUTCOffset = moment(unformattedUTCOffset, "HH:mm:ss").format("HH:mm");
+      const IsAheadOfUTC = timezone["isAheadOfUTC"];
+      attendeeTimeZoneArr.push({UTCOffset: attendeeUTCOffset, IsAheadOfUTC: IsAheadOfUTC});
+    }
   }
+
 };

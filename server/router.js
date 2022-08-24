@@ -94,28 +94,12 @@ router.get("/converter", async (req, res) => {
   // get user's timezone
   const userTimeZoneArr = await User.getTimezone(country, city);
   const userTimeZone = userTimeZoneArr[0];
-  const unformattedUserUTCOffset = userTimeZone["UTCOffset"];
-  const userUTCOffset = moment(unformattedUserUTCOffset, "HH:mm:ss").format("HH:mm");
+  const unformattedUTCOffset = userTimeZone["UTCOffset"];
+  const userUTCOffset = moment(unformattedUTCOffset, "HH:mm:ss").format("HH:mm");
   const userIsAheadOfUTC = userTimeZone["isAheadOfUTC"];
 
-  // get attendee's timezones
-  const attendeeTimeZoneArr = [];
-  for (let i = 0; i < attendeeCount; i++) {
-    let timezone = await 
-      knex
-      .where({
-        country: attendeeCountryArr[i],
-        city: attendeeCityArr[i]
-      })
-      .select("UTCOffset", "isAheadOfUTC")
-      .from("UTC");
-    timezone = timezone[0];
-    const UTCOffset = timezone["UTCOffset"];
-    const momentUTCOffset = moment(UTCOffset, "HH:mm:ss").format("HH:mm");
-    const IsAheadOfUTC = timezone["isAheadOfUTC"];
-    attendeeTimeZoneArr.push({UTCOffset: momentUTCOffset, IsAheadOfUTC: IsAheadOfUTC});
-  }
- 
+  const attendeeTimeZoneArr = Converter.getAttendeeTimezone(attendeeCount, attendeeCountryArr, attendeeCityArr);
+
   // convert the start/end time into different time zones
 
   // module
