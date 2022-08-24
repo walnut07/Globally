@@ -8,7 +8,7 @@ const Converter = require("./helper/Converter");
 
 const Country = require("./models/postgre/Country");
 const City = require("./models/postgre/City");
-const { count } = require("./models/mongo/Dates");
+const User = require("./models/postgre/User");
 
 // const Dates = require('./models/mongo/Dates');
 
@@ -83,9 +83,8 @@ router.get("/converter", async (req, res) => {
   startDate = moment(startDate).format("LLL"); // example: August 20, 2022 1:31 PM
   endDate = moment(endDate).format("LLL");
 
-  // return error if any of requests is undefined or empty
-  const reqArr = [country, city, date, startTime, endTime, attendeeCount];
-  if (reqArr.some(Converter.hasUndefined)) {
+  const reqArr = [country, city, date, startTime, endTime, attendeeCount];  
+  if (reqArr.some(Converter.hasUndefined)) { // return error if any of requests is undefined or empty
     console.log("Empty or undefied in the form");
     res.status(200).send({error: "Please fill in the form"});
   }
@@ -93,17 +92,10 @@ router.get("/converter", async (req, res) => {
   const [attendeeCountryArr, attendeeCityArr] = Converter.parseAttendee(body, attendeeCount);
 
   // get user's timezone
-  let userTimeZone = await 
-    knex
-    .where({
-      country: `${country}`,
-      city: `${city}`
-    })
-    .select("UTCOffset", "isAheadOfUTC")
-    .from("UTC");
-  userTimeZone = userTimeZone[0];
-  let userUTCOffset = userTimeZone["UTCOffset"];
-  userUTCOffset = moment(userUTCOffset, "HH:mm:ss").format("HH:mm");
+  const userTimeZoneArr = await User.getTimezone(country, city);
+  const userTimeZone = userTimeZoneArr[0];
+  const unformattedUserUTCOffset = userTimeZone["UTCOffset"];
+  const userUTCOffset = moment(unformattedUserUTCOffset, "HH:mm:ss").format("HH:mm");
   const userIsAheadOfUTC = userTimeZone["isAheadOfUTC"];
 
   // get attendee's timezones
