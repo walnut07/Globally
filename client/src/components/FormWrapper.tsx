@@ -4,7 +4,7 @@ import UsersDateContainer from "./UsersDateContainer";
 import AttendeeTimeZoneContainer from "./AttendeeTimeZoneContainer";
 import { useEffect, useState } from "react";
 
-const BASE_URL = process.env.PUBLIC_URL || "http://localhost:8000";
+const BASE_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8000";
 
 
 type Props = {
