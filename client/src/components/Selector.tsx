@@ -2,7 +2,7 @@
 import { useState, useEffect, HtmlHTMLAttributes } from "react";
 import "../Style.css";
 const axios = require('axios')
-const BASE_URL = process.env.PUBLIC_URL || "http://localhost:8000";
+const BASE_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8000";
 
 type Props = {
   className?: string,
@@ -19,6 +19,8 @@ const Selector: React.FC<Props> = ({title, inputType, isOption}) => {
   
   // get country data on initial load
   useEffect(() => {
+    console.log(process.env.REACT_APP_PUBLIC_URL)
+    console.log(process.env.REACT_APP_AUTHDOMAIN)
     axios.get(`${BASE_URL}/country`)
     .then((res: any) => {
       const unsortedCountries = res.data;
@@ -62,6 +64,7 @@ const Selector: React.FC<Props> = ({title, inputType, isOption}) => {
   
   return (
     <div className={`${title} form-div`}>
+      
       <label htmlFor={title}>{title}</label>
 
       {isOption && 
