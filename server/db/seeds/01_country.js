@@ -6,12 +6,12 @@ exports.seed = async function(knex) {
   // Deletes ALL existing entries
   await knex('UTC').del()
   await knex('UTC').insert([
-    {
-      country: 'Select a country',
-      city: 'Select a city',
-      UTCOffset: '00:00',
-      isAheadOfUTC: false
-    } ,
+    // {
+    //   country: 'Select a country',
+    //   city: 'Select a city',
+    //   UTCOffset: '00:00',
+    //   isAheadOfUTC: false
+    // } ,
     {
       country: 'Afghanistan',
       city: 'Kabul',
@@ -30,174 +30,174 @@ exports.seed = async function(knex) {
       UTCOffset: '02:00',
       isAheadOfUTC: true
     } ,
-    {
-      country: 'Algeria',
-      city: 'Algiers',
-      UTCOffset: '01:00',
-      isAheadOfUTC: true
-    } ,
-    {
-      country: 'American Samoa',
-      city: 'Pago_Pago',
-      UTCOffset: '11:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Andorra',
-      city: 'Andorra',
-      UTCOffset: '02:00',
-      isAheadOfUTC: true
-    } ,
-    {
-      country: 'Angola',
-      city: 'Luanda',
-      UTCOffset: '01:00',
-      isAheadOfUTC: true
-    } ,
-    {
-      country: 'Anguilla',
-      city: 'Anguilla',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Antarctica',
-      city: 'Troll',
-      UTCOffset: '02:00',
-      isAheadOfUTC: true
-    } ,
-    {
-      country: 'Antarctica',
-      city: 'Palmer',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Antarctica',
-      city: 'Rothera',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Antarctica',
-      city: 'Syowa',
-      UTCOffset: '03:00',
-      isAheadOfUTC: true
-    } ,
-    {
-      country: 'Antarctica',
-      city: 'Mawson',
-      UTCOffset: '05:00',
-      isAheadOfUTC: true
-    } ,
-    {
-      country: 'Antarctica',
-      city: 'Vostok',
-      UTCOffset: '06:00',
-      isAheadOfUTC: true
-    } ,
-    {
-      country: 'Antarctica',
-      city: 'Davis',
-      UTCOffset: '07:00',
-      isAheadOfUTC: true
-    } ,
-    {
-      country: 'Antarctica',
-      city: 'Casey',
-      UTCOffset: '08:00',
-      isAheadOfUTC: true
-    } ,
-    {
-      country: 'Antarctica',
-      city: 'DumontDUrville',
-      UTCOffset: '10:00',
-      isAheadOfUTC: true
-    } ,
-    {
-      country: 'Antarctica',
-      city: 'McMurdo',
-      UTCOffset: '12:00',
-      isAheadOfUTC: true
-    } ,
-    {
-      country: 'Antigua And Barbuda',
-      city: 'Antigua',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Argentina',
-      city: 'Buenos_Aires',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Argentina',
-      city: 'Catamarca',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Argentina',
-      city: 'Cordoba',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Argentina',
-      city: 'Jujuy',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Argentina',
-      city: 'La_Rioja',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Argentina',
-      city: 'Mendoza',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Argentina',
-      city: 'Rio_Gallegos',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Argentina',
-      city: 'Salta',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Argentina',
-      city: 'San_Juan',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Argentina',
-      city: 'San_Luis',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Argentina',
-      city: 'Tucuman',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Argentina',
-      city: 'Ushuaia',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
+    // {
+    //   country: 'Algeria',
+    //   city: 'Algiers',
+    //   UTCOffset: '01:00',
+    //   isAheadOfUTC: true
+    // } ,
+    // {
+    //   country: 'American Samoa',
+    //   city: 'Pago_Pago',
+    //   UTCOffset: '11:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Andorra',
+    //   city: 'Andorra',
+    //   UTCOffset: '02:00',
+    //   isAheadOfUTC: true
+    // } ,
+    // {
+    //   country: 'Angola',
+    //   city: 'Luanda',
+    //   UTCOffset: '01:00',
+    //   isAheadOfUTC: true
+    // } ,
+    // {
+    //   country: 'Anguilla',
+    //   city: 'Anguilla',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Antarctica',
+    //   city: 'Troll',
+    //   UTCOffset: '02:00',
+    //   isAheadOfUTC: true
+    // } ,
+    // {
+    //   country: 'Antarctica',
+    //   city: 'Palmer',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Antarctica',
+    //   city: 'Rothera',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Antarctica',
+    //   city: 'Syowa',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: true
+    // } ,
+    // {
+    //   country: 'Antarctica',
+    //   city: 'Mawson',
+    //   UTCOffset: '05:00',
+    //   isAheadOfUTC: true
+    // } ,
+    // {
+    //   country: 'Antarctica',
+    //   city: 'Vostok',
+    //   UTCOffset: '06:00',
+    //   isAheadOfUTC: true
+    // } ,
+    // {
+    //   country: 'Antarctica',
+    //   city: 'Davis',
+    //   UTCOffset: '07:00',
+    //   isAheadOfUTC: true
+    // } ,
+    // {
+    //   country: 'Antarctica',
+    //   city: 'Casey',
+    //   UTCOffset: '08:00',
+    //   isAheadOfUTC: true
+    // } ,
+    // {
+    //   country: 'Antarctica',
+    //   city: 'DumontDUrville',
+    //   UTCOffset: '10:00',
+    //   isAheadOfUTC: true
+    // } ,
+    // {
+    //   country: 'Antarctica',
+    //   city: 'McMurdo',
+    //   UTCOffset: '12:00',
+    //   isAheadOfUTC: true
+    // } ,
+    // {
+    //   country: 'Antigua And Barbuda',
+    //   city: 'Antigua',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Argentina',
+    //   city: 'Buenos_Aires',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Argentina',
+    //   city: 'Catamarca',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Argentina',
+    //   city: 'Cordoba',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Argentina',
+    //   city: 'Jujuy',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Argentina',
+    //   city: 'La_Rioja',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Argentina',
+    //   city: 'Mendoza',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Argentina',
+    //   city: 'Rio_Gallegos',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Argentina',
+    //   city: 'Salta',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Argentina',
+    //   city: 'San_Juan',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Argentina',
+    //   city: 'San_Luis',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Argentina',
+    //   city: 'Tucuman',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Argentina',
+    //   city: 'Ushuaia',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
     {
       country: 'Armenia',
       city: 'Yerevan',
@@ -300,12 +300,12 @@ exports.seed = async function(knex) {
       UTCOffset: '04:00',
       isAheadOfUTC: true
     } ,
-    {
-      country: 'Bahamas',
-      city: 'Nassau',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
+    // {
+    //   country: 'Bahamas',
+    //   city: 'Nassau',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
     {
       country: 'Bahrain',
       city: 'Bahrain',
@@ -390,78 +390,78 @@ exports.seed = async function(knex) {
       UTCOffset: '02:00',
       isAheadOfUTC: false
     } ,
-    {
-      country: 'Brazil',
-      city: 'Araguaina',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Brazil',
-      city: 'Bahia',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Brazil',
-      city: 'Belem',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Brazil',
-      city: 'Fortaleza',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Brazil',
-      city: 'Maceio',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Brazil',
-      city: 'Recife',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Brazil',
-      city: 'Santarem',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Brazil',
-      city: 'Sao_Paulo',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
+    // {
+    //   country: 'Brazil',
+    //   city: 'Araguaina',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Brazil',
+    //   city: 'Bahia',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Brazil',
+    //   city: 'Belem',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Brazil',
+    //   city: 'Fortaleza',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Brazil',
+    //   city: 'Maceio',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Brazil',
+    //   city: 'Recife',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Brazil',
+    //   city: 'Santarem',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Brazil',
+    //   city: 'Sao_Paulo',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
     {
       country: 'Brazil',
       city: 'Boa_Vista',
       UTCOffset: '04:00',
       isAheadOfUTC: false
     } ,
-    {
-      country: 'Brazil',
-      city: 'Campo_Grande',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Brazil',
-      city: 'Cuiaba',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Brazil',
-      city: 'Manaus',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
+    // {
+    //   country: 'Brazil',
+    //   city: 'Campo_Grande',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Brazil',
+    //   city: 'Cuiaba',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Brazil',
+    //   city: 'Manaus',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
     {
       country: 'Brazil',
       city: 'Porto_Velho',
@@ -528,84 +528,84 @@ exports.seed = async function(knex) {
       UTCOffset: '02:30',
       isAheadOfUTC: false
     } ,
-    {
-      country: 'Canada',
-      city: 'Glace_Bay',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Canada',
-      city: 'Goose_Bay',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Canada',
-      city: 'Halifax',
-      UTCOffset: '03:00',
-      isAheadOfUTC: false
-    } ,
+    // {
+    //   country: 'Canada',
+    //   city: 'Glace_Bay',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Canada',
+    //   city: 'Goose_Bay',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Canada',
+    //   city: 'Halifax',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: false
+    // } ,
     {
       country: 'Canada',
       city: 'Moncton',
       UTCOffset: '03:00',
       isAheadOfUTC: false
     } ,
-    {
-      country: 'Canada',
-      city: 'Blanc-Sablon',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Canada',
-      city: 'Iqaluit',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Canada',
-      city: 'Nipigon',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Canada',
-      city: 'Pangnirtung',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Canada',
-      city: 'Thunder_Bay',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
+    // {
+    //   country: 'Canada',
+    //   city: 'Blanc-Sablon',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Canada',
+    //   city: 'Iqaluit',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Canada',
+    //   city: 'Nipigon',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Canada',
+    //   city: 'Pangnirtung',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Canada',
+    //   city: 'Thunder_Bay',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
     {
       country: 'Canada',
       city: 'Toronto',
       UTCOffset: '04:00',
       isAheadOfUTC: false
     } ,
-    {
-      country: 'Canada',
-      city: 'Atikokan',
-      UTCOffset: '05:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Canada',
-      city: 'Rainy_River',
-      UTCOffset: '05:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Canada',
-      city: 'Rankin_Inlet',
-      UTCOffset: '05:00',
-      isAheadOfUTC: false
-    } ,
+    // {
+    //   country: 'Canada',
+    //   city: 'Atikokan',
+    //   UTCOffset: '05:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Canada',
+    //   city: 'Rainy_River',
+    //   UTCOffset: '05:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Canada',
+    //   city: 'Rankin_Inlet',
+    //   UTCOffset: '05:00',
+    //   isAheadOfUTC: false
+    // } ,
     {
       country: 'Canada',
       city: 'Resolute',
@@ -618,36 +618,36 @@ exports.seed = async function(knex) {
       UTCOffset: '05:00',
       isAheadOfUTC: false
     } ,
-    {
-      country: 'Canada',
-      city: 'Cambridge_Bay',
-      UTCOffset: '06:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Canada',
-      city: 'Edmonton',
-      UTCOffset: '06:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Canada',
-      city: 'Inuvik',
-      UTCOffset: '06:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Canada',
-      city: 'Regina',
-      UTCOffset: '06:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Canada',
-      city: 'Swift_Current',
-      UTCOffset: '06:00',
-      isAheadOfUTC: false
-    } ,
+    // {
+    //   country: 'Canada',
+    //   city: 'Cambridge_Bay',
+    //   UTCOffset: '06:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Canada',
+    //   city: 'Edmonton',
+    //   UTCOffset: '06:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Canada',
+    //   city: 'Inuvik',
+    //   UTCOffset: '06:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Canada',
+    //   city: 'Regina',
+    //   UTCOffset: '06:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Canada',
+    //   city: 'Swift_Current',
+    //   UTCOffset: '06:00',
+    //   isAheadOfUTC: false
+    // } ,
     {
       country: 'Canada',
       city: 'Yellowknife',
@@ -666,18 +666,18 @@ exports.seed = async function(knex) {
       UTCOffset: '07:00',
       isAheadOfUTC: false
     } ,
-    {
-      country: 'Canada',
-      city: 'Dawson_Creek',
-      UTCOffset: '07:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Canada',
-      city: 'Fort_Nelson',
-      UTCOffset: '07:00',
-      isAheadOfUTC: false
-    } ,
+    // {
+    //   country: 'Canada',
+    //   city: 'Dawson_Creek',
+    //   UTCOffset: '07:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Canada',
+    //   city: 'Fort_Nelson',
+    //   UTCOffset: '07:00',
+    //   isAheadOfUTC: false
+    // } ,
     {
       country: 'Canada',
       city: 'Vancouver',
@@ -834,18 +834,18 @@ exports.seed = async function(knex) {
       UTCOffset: '02:00',
       isAheadOfUTC: true
     } ,
-    {
-      country: 'Djibouti',
-      city: 'Djibouti',
-      UTCOffset: '03:00',
-      isAheadOfUTC: true
-    } ,
-    {
-      country: 'Dominica',
-      city: 'Dominica',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
+    // {
+    //   country: 'Djibouti',
+    //   city: 'Djibouti',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: true
+    // } ,
+    // {
+    //   country: 'Dominica',
+    //   city: 'Dominica',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
     {
       country: 'Dominican Republic',
       city: 'Santo_Domingo',
@@ -948,18 +948,18 @@ exports.seed = async function(knex) {
       UTCOffset: '09:00',
       isAheadOfUTC: false
     } ,
-    {
-      country: 'French Polynesia',
-      city: 'Marquesas',
-      UTCOffset: '09:30',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'French Polynesia',
-      city: 'Tahiti',
-      UTCOffset: '10:00',
-      isAheadOfUTC: false
-    } ,
+    // {
+    //   country: 'French Polynesia',
+    //   city: 'Marquesas',
+    //   UTCOffset: '09:30',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'French Polynesia',
+    //   city: 'Tahiti',
+    //   UTCOffset: '10:00',
+    //   isAheadOfUTC: false
+    // } ,
     {
       country: 'French Southern Territories',
       city: 'Kerguelen',
@@ -1014,18 +1014,18 @@ exports.seed = async function(knex) {
       UTCOffset: '03:00',
       isAheadOfUTC: false
     } ,
-    {
-      country: 'Grenada',
-      city: 'Grenada',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Guadeloupe',
-      city: 'Guadeloupe',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
+    // {
+    //   country: 'Grenada',
+    //   city: 'Grenada',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Guadeloupe',
+    //   city: 'Guadeloupe',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
     {
       country: 'Guam',
       city: 'Guam',
@@ -1056,12 +1056,12 @@ exports.seed = async function(knex) {
       UTCOffset: '04:00',
       isAheadOfUTC: false
     } ,
-    {
-      country: 'Honduras',
-      city: 'Tegucigalpa',
-      UTCOffset: '06:00',
-      isAheadOfUTC: false
-    } ,
+    // {
+    //   country: 'Honduras',
+    //   city: 'Tegucigalpa',
+    //   UTCOffset: '06:00',
+    //   isAheadOfUTC: false
+    // } ,
     {
       country: 'Hong Kong',
       city: 'Hong_Kong',
@@ -1440,12 +1440,12 @@ exports.seed = async function(knex) {
       UTCOffset: '11:00',
       isAheadOfUTC: true
     } ,
-    {
-      country: 'Micronesia',
-      city: 'Pohnpei',
-      UTCOffset: '11:00',
-      isAheadOfUTC: true
-    } ,
+    // {
+    //   country: 'Micronesia',
+    //   city: 'Pohnpei',
+    //   UTCOffset: '11:00',
+    //   isAheadOfUTC: true
+    // } ,
     {
       country: 'Moldova',
       city: 'Chisinau',
@@ -1710,12 +1710,12 @@ exports.seed = async function(knex) {
       UTCOffset: '04:00',
       isAheadOfUTC: true
     } ,
-    {
-      country: 'Romania',
-      city: 'Bucharest',
-      UTCOffset: '03:00',
-      isAheadOfUTC: true
-    } ,
+    // {
+    //   country: 'Romania',
+    //   city: 'Bucharest',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: true
+    // } ,
     {
       country: 'Russia',
       city: 'Kaliningrad',
@@ -1740,30 +1740,30 @@ exports.seed = async function(knex) {
       UTCOffset: '03:00',
       isAheadOfUTC: true
     } ,
-    {
-      country: 'Russia',
-      city: 'Volgograd',
-      UTCOffset: '03:00',
-      isAheadOfUTC: true
-    } ,
+    // {
+    //   country: 'Russia',
+    //   city: 'Volgograd',
+    //   UTCOffset: '03:00',
+    //   isAheadOfUTC: true
+    // } ,
     {
       country: 'Russia',
       city: 'Astrakhan',
       UTCOffset: '04:00',
       isAheadOfUTC: true
     } ,
-    {
-      country: 'Russia',
-      city: 'Samara',
-      UTCOffset: '04:00',
-      isAheadOfUTC: true
-    } ,
-    {
-      country: 'Russia',
-      city: 'Saratov',
-      UTCOffset: '04:00',
-      isAheadOfUTC: true
-    } ,
+    // {
+    //   country: 'Russia',
+    //   city: 'Samara',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: true
+    // } ,
+    // {
+    //   country: 'Russia',
+    //   city: 'Saratov',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: true
+    // } ,
     {
       country: 'Russia',
       city: 'Ulyanovsk',
@@ -1788,18 +1788,18 @@ exports.seed = async function(knex) {
       UTCOffset: '07:00',
       isAheadOfUTC: true
     } ,
-    {
-      country: 'Russia',
-      city: 'Krasnoyarsk',
-      UTCOffset: '07:00',
-      isAheadOfUTC: true
-    } ,
-    {
-      country: 'Russia',
-      city: 'Novokuznetsk',
-      UTCOffset: '07:00',
-      isAheadOfUTC: true
-    } ,
+    // {
+    //   country: 'Russia',
+    //   city: 'Krasnoyarsk',
+    //   UTCOffset: '07:00',
+    //   isAheadOfUTC: true
+    // } ,
+    // {
+    //   country: 'Russia',
+    //   city: 'Novokuznetsk',
+    //   UTCOffset: '07:00',
+    //   isAheadOfUTC: true
+    // } ,
     {
       country: 'Russia',
       city: 'Novosibirsk',
@@ -1818,24 +1818,24 @@ exports.seed = async function(knex) {
       UTCOffset: '08:00',
       isAheadOfUTC: true
     } ,
-    {
-      country: 'Russia',
-      city: 'Chita',
-      UTCOffset: '09:00',
-      isAheadOfUTC: true
-    } ,
-    {
-      country: 'Russia',
-      city: 'Khandyga',
-      UTCOffset: '09:00',
-      isAheadOfUTC: true
-    } ,
-    {
-      country: 'Russia',
-      city: 'Yakutsk',
-      UTCOffset: '09:00',
-      isAheadOfUTC: true
-    } ,
+    // {
+    //   country: 'Russia',
+    //   city: 'Chita',
+    //   UTCOffset: '09:00',
+    //   isAheadOfUTC: true
+    // } ,
+    // {
+    //   country: 'Russia',
+    //   city: 'Khandyga',
+    //   UTCOffset: '09:00',
+    //   isAheadOfUTC: true
+    // } ,
+    // {
+    //   country: 'Russia',
+    //   city: 'Yakutsk',
+    //   UTCOffset: '09:00',
+    //   isAheadOfUTC: true
+    // } ,
     {
       country: 'Russia',
       city: 'Ust-Nera',
@@ -1854,18 +1854,18 @@ exports.seed = async function(knex) {
       UTCOffset: '11:00',
       isAheadOfUTC: true
     } ,
-    {
-      country: 'Russia',
-      city: 'Sakhalin',
-      UTCOffset: '11:00',
-      isAheadOfUTC: true
-    } ,
-    {
-      country: 'Russia',
-      city: 'Srednekolymsk',
-      UTCOffset: '11:00',
-      isAheadOfUTC: true
-    } ,
+    // {
+    //   country: 'Russia',
+    //   city: 'Sakhalin',
+    //   UTCOffset: '11:00',
+    //   isAheadOfUTC: true
+    // } ,
+    // {
+    //   country: 'Russia',
+    //   city: 'Srednekolymsk',
+    //   UTCOffset: '11:00',
+    //   isAheadOfUTC: true
+    // } ,
     {
       country: 'Russia',
       city: 'Anadyr',
@@ -1902,24 +1902,24 @@ exports.seed = async function(knex) {
       UTCOffset: '04:00',
       isAheadOfUTC: false
     } ,
-    {
-      country: 'Saint Martin',
-      city: 'Marigot',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Saint Pierre And Miquelon',
-      city: 'Miquelon',
-      UTCOffset: '02:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'Saint Vincent And The Grenadines',
-      city: 'St_Vincent',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
+    // {
+    //   country: 'Saint Martin',
+    //   city: 'Marigot',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Saint Pierre And Miquelon',
+    //   city: 'Miquelon',
+    //   UTCOffset: '02:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'Saint Vincent And The Grenadines',
+    //   city: 'St_Vincent',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
     {
       country: 'Samoa',
       city: 'Apia',
@@ -2208,12 +2208,12 @@ exports.seed = async function(knex) {
       UTCOffset: '04:00',
       isAheadOfUTC: false
     } ,
-    {
-      country: 'United States',
-      city: 'Marengo',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
+    // {
+    //   country: 'United States',
+    //   city: 'Marengo',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
     {
       country: 'United States',
       city: 'Petersburg',
@@ -2238,18 +2238,18 @@ exports.seed = async function(knex) {
       UTCOffset: '04:00',
       isAheadOfUTC: false
     } ,
-    {
-      country: 'United States',
-      city: 'Louisville',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'United States',
-      city: 'Monticello',
-      UTCOffset: '04:00',
-      isAheadOfUTC: false
-    } ,
+    // {
+    //   country: 'United States',
+    //   city: 'Louisville',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'United States',
+    //   city: 'Monticello',
+    //   UTCOffset: '04:00',
+    //   isAheadOfUTC: false
+    // } ,
     {
       country: 'United States',
       city: 'New_York',
@@ -2328,36 +2328,36 @@ exports.seed = async function(knex) {
       UTCOffset: '08:00',
       isAheadOfUTC: false
     } ,
-    {
-      country: 'United States',
-      city: 'Juneau',
-      UTCOffset: '08:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'United States',
-      city: 'Metlakatla',
-      UTCOffset: '08:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'United States',
-      city: 'Nome',
-      UTCOffset: '08:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'United States',
-      city: 'Sitka',
-      UTCOffset: '08:00',
-      isAheadOfUTC: false
-    } ,
-    {
-      country: 'United States',
-      city: 'Yakutat',
-      UTCOffset: '08:00',
-      isAheadOfUTC: false
-    } ,
+    // {
+    //   country: 'United States',
+    //   city: 'Juneau',
+    //   UTCOffset: '08:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'United States',
+    //   city: 'Metlakatla',
+    //   UTCOffset: '08:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'United States',
+    //   city: 'Nome',
+    //   UTCOffset: '08:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'United States',
+    //   city: 'Sitka',
+    //   UTCOffset: '08:00',
+    //   isAheadOfUTC: false
+    // } ,
+    // {
+    //   country: 'United States',
+    //   city: 'Yakutat',
+    //   UTCOffset: '08:00',
+    //   isAheadOfUTC: false
+    // } ,
     {
       country: 'United States',
       city: 'Adak',
