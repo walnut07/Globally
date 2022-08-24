@@ -9,6 +9,7 @@ const Converter = require("./helper/Converter");
 const Country = require("./models/postgre/Country");
 const City = require("./models/postgre/City");
 const User = require("./models/postgre/User");
+const Attendee = require("./models/postgre/Attendee");
 
 // const Dates = require('./models/mongo/Dates');
 
@@ -98,9 +99,14 @@ router.get("/converter", async (req, res) => {
   const userUTCOffset = moment(unformattedUTCOffset, "HH:mm:ss").format("HH:mm");
   const userIsAheadOfUTC = userTimeZone["isAheadOfUTC"];
 
-  const attendeeTimeZoneArr = Converter.getAttendeeTimezone(attendeeCount, attendeeCountryArr, attendeeCityArr);
-
-  // convert the start/end time into different time zones
+  let attendeeTimeZoneArr;
+  try {
+    attendeeTimeZoneArr = await Converter.getAttendeeTimezone(attendeeCount, attendeeCountryArr, attendeeCityArr);
+  } catch (err) {
+    console.log(err);
+    res.status(200).send({error: "Please fill in the form"});
+    return
+  }
 
   // module
   const converter = (attendeeCount, convertedTimeArr, attendeeTimeZoneArr, userUTCOffset, userIsAheadOfUTC, startOrEndDate) => {
