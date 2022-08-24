@@ -1,2 +1,2 @@
-release: npm run migrate-latest
+release: npm run migrate-latest && npm run seed-data
 web: npm start
