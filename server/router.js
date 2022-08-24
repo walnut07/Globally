@@ -90,17 +90,7 @@ router.get("/converter", async (req, res) => {
     res.status(200).send({error: "Please fill in the form"});
   }
 
-  // parse attendee data
-  const attendeeCountryArr = [];
-  const attendeeCityArr = [];
-  for (let i = 1; i <= attendeeCount; i++) {
-    const countryParam = `attendeeCountry${i}`
-    const cityParam = `attendeeCity${i}`
-    const country = body[countryParam];
-    const city = body[cityParam];
-    attendeeCountryArr.push(country);
-    attendeeCityArr.push(city);
-  }
+  const [attendeeCountryArr, attendeeCityArr] = Converter.parseAttendee(body, attendeeCount);
 
   // get user's timezone
   let userTimeZone = await 
