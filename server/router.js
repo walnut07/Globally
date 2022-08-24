@@ -83,13 +83,13 @@ router.get("/converter", async (req, res) => {
   startDate = moment(startDate).format("LLL"); // example: August 20, 2022 1:31 PM
   endDate = moment(endDate).format("LLL");
 
-  // return error if any of requests is undefined
+  // return error if any of requests is undefined or empty
   const hasUndefined = (elem) => {
-    return elem == undefined;
+    return elem == undefined || elem === "";
   }
   const reqArr = [country, city, date, startTime, endTime, attendeeCount];
   if (reqArr.some(hasUndefined)) {
-    res.send({error: "Please fill in the form"});
+    res.status(200).send({error: "Please fill in the form"});
     return
   }
 
