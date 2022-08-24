@@ -20,8 +20,6 @@
   <p align="center">
     Let's quickly arrange a global meeting with the help of Globally.
     <br />
-    <a href="https://github.com/walnut07/Globally"><strong>Explore the docs »</strong></a>
-    <br />
     <br />
     <a href="https://github.com/walnut07/Globally/issues">Report Bug</a>
     ·
@@ -64,7 +62,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Globally quickly creates text so you can propose a meeting date even the attendees are in a different time zone.
+Globally quickly creates an email template so you can propose a meeting date even the attendees are in a different time zone.
 
 ### Persona & User story
 
@@ -76,15 +74,15 @@ Briana Martin
 
 
 **User story**<br>
+- Title
 She can propose her available date to her clients who live in different time zones.
 
+- Accepetant criteria
 * GIVEN her available time and her clients' time zones
 * WHEN she inputs them
 * THEN she should see the available time in the chosen time zones.
 
 <img src="images/logo.png" alt="Logo" width="80" height="80">
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 ### Built With
@@ -111,30 +109,30 @@ She can propose her available date to her clients who live in different time zon
 * PostgreSQL
 * MongoDB
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+Clone the repo
+   ```sh
+   git clone https://github.com/walnut07/Globally.git
+   ```
 
+Install libraries
 * npm
   ```sh
   cd server
   npm install cors dotenv express knex moment nodemon pg router mongodb
-  npm run
   ```
   
   ```sh
   cd client
   npm install axios firebase moment
-  npm run
   ```
   
+Set up a database
 * PostgreSQL
 
   ```sql
@@ -154,36 +152,38 @@ To get a local copy up and running follow these simple example steps.
   knex migrate:latest
   ```
 
-### Installation
+Set up Firebase
+1.  Start a project at [https://firebase.google.com/](https://firebase.google.com/)
+2. Create a `.env.development.local` file in `client/src`
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+  ```sh
+  cd client/src
+  cat .env.development.local
+  ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+3. Write config information in the file
 
+  ```sh 
+  REACT_APP_APIKEY="YOUR APIKEY"
+  REACT_APP_AUTHDOMAIN="YOUR AUTHDOMAIN"
+  REACT_APP_PROJECT_ID=
+  REACT_APP_STORAGE_BUCKET=
+  REACT_APP_MESSAGING_SENDER_ID=
+  REACT_APP_APP_ID=
+  REACT_APP_MEASUREMENT_ID=
+  ```
 
+Ready to run the app
 
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+  ```sh
+  cd server
+  npm run
+  ```
+  
+  ```sh
+  cd client
+  npm run
+  ```
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -213,10 +213,6 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- LICENSE -->
 ## License
 
@@ -229,22 +225,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Kurumi Muto - [@walnut07_](https://twitter.com/walnut07_)
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+Project Link: [https://github.com/walnut07/Globally](https://github.com/walnut07/Globally)
 
 
 
