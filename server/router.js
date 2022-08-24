@@ -2,16 +2,16 @@ const router = require("express").Router();
 const knex = require("./db/knex");
 const moment = require("moment");
 const mongoose = require('mongoose');
-const Dates = require('./models/Dates');
+// const Dates = require('./models/Dates');
 
 // ----- mongodb ------ //
 
-mongoose.connect('mongodb://127.0.0.1/dates');
+// mongoose.connect('mongodb://127.0.0.1/dates');
 
-const db = mongoose.connection;
+// const db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'DB connection error:'));
-db.once('open', () => console.log('DB connection successful'));
+// db.on('error', console.error.bind(console, 'DB connection error:'));
+// db.once('open', () => console.log('DB connection successful'));
 
 // ---------------------- //
 

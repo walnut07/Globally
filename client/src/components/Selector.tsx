@@ -19,8 +19,8 @@ const Selector: React.FC<Props> = ({title, inputType, isOption}) => {
   
   // get country data on initial load
   useEffect(() => {
-    console.log(process.env.REACT_APP_PUBLIC_URL)
-    console.log(process.env.REACT_APP_AUTHDOMAIN)
+    // console.log(process.env.REACT_APP_PUBLIC_URL)
+    // console.log(process.env.REACT_APP_AUTHDOMAIN)
     axios.get(`${BASE_URL}/country`)
     .then((res: any) => {
       const unsortedCountries = res.data;
