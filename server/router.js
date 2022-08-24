@@ -3,6 +3,7 @@ const knex = require("./db/knex");
 const moment = require("moment");
 const mongoose = require('mongoose');
 const country = require("./models/postgre/country");
+const Converter = require("./helper/Converter");
 
 // ---- models ----- //
 
@@ -84,11 +85,9 @@ router.get("/converter", async (req, res) => {
   endDate = moment(endDate).format("LLL");
 
   // return error if any of requests is undefined or empty
-  const hasUndefined = (elem) => {
-    return elem == undefined || elem === "";
-  }
   const reqArr = [country, city, date, startTime, endTime, attendeeCount];
-  if (reqArr.some(hasUndefined)) {
+  if (reqArr.some(Converter.hasUndefined)) {
+    console.log("Empty or undefied in the form");
     res.status(200).send({error: "Please fill in the form"});
     return
   }
