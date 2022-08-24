@@ -2,7 +2,7 @@
 import { useState, useEffect, HtmlHTMLAttributes } from "react";
 import "../Style.css";
 const axios = require('axios')
-const BASE_URL = process.env.PUBLIC_URL || "http://localhost:8000";
+const BASE_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8000";
 
 type Props = {
   className?: string,
