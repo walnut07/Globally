@@ -7,7 +7,8 @@ const country = require("./models/postgre/country");
 // ---- models ----- //
 
 const Country = require("./models/postgre/Country");
-
+const City = require("./models/postgre/City");
+const { count } = require("./models/mongo/Dates");
 
 // const Dates = require('./models/mongo/Dates');
 
@@ -47,11 +48,24 @@ router.get("/country", async (req, res) => {
 
 router.get("/city", async (req, res) => {
   const country = req.query.country;
-  const data = await knex.raw('SELECT city FROM "UTC" WHERE "country" = ?', country);
-  const cities = data["rows"].map(row => {
+
+  let city;
+  try {
+    city = await City.get(country);
+  } catch (err) {
+    const errorMessage = {message: "Error happened when getting city data", error: err};
+    res.status(202).send(errorMessage);
+  } 
+  if (city.length === 0) {
+    res.status(202).send(["No city matched"]);
+  }
+  if (country == undefined) {
+    res.status(202).send(["Country undefined"]);
+  }
+
+  const cities = city["rows"].map(row => {
     return row["city"];
   });
-
   res.status(200).send(cities);
 })
 
