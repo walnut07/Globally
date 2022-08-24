@@ -36,6 +36,8 @@ module.exports =  {
       const IsAheadOfUTC = timezone["isAheadOfUTC"];
       attendeeTimeZoneArr.push({UTCOffset: attendeeUTCOffset, IsAheadOfUTC: IsAheadOfUTC});
     }
+
+    return attendeeTimeZoneArr;
   }
 
 };
