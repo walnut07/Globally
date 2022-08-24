@@ -2,6 +2,13 @@ const router = require("express").Router();
 const knex = require("./db/knex");
 const moment = require("moment");
 const mongoose = require('mongoose');
+const country = require("./models/postgre/country");
+
+// ---- models ----- //
+
+const Country = require("./models/postgre/Country");
+
+
 // const Dates = require('./models/mongo/Dates');
 
 // ----- mongodb ------ //
@@ -20,11 +27,21 @@ router.get("/", (req, res) => {
 })
 
 router.get("/country", async (req, res) => {
-  const data = await knex.raw('SELECT DISTINCT(country) FROM "UTC"');
-  const countries = data["rows"].map(row => {
+  let country;
+  try {
+    country = await Country.get();
+  } catch (err) {
+    const errorMessage = {message: "Error happened when getting country data", error: err};
+    res.status(202).send(errorMessage);
+  } finally {
+    if (country.length === 0) {
+      res.status(202).send("No country matched");
+    }
+  }
+  
+  const countries = country["rows"].map(row => {
     return row["country"];
   })
-
   res.status(200).send(countries);
 })
 
