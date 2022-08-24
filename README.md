@@ -14,9 +14,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/walnut07/Globally">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
 
 <h3 align="center">Globally - timezone converter - </h3>
 
@@ -265,4 +262,4 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [license-url]: https://github.com/walnut07/globally/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/kurumimuto
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: images_doc/Globally-screenshot.png
