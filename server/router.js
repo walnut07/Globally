@@ -35,9 +35,11 @@ router.get("/country", async (req, res) => {
   } catch (err) {
     const errorMessage = {message: "Error happened when getting country data", error: err};
     res.status(202).send(errorMessage);
+    return
   } finally {
     if (country.length === 0) {
       res.status(202).send("No country matched");
+      return
     }
   }
   
@@ -59,9 +61,11 @@ router.get("/city", async (req, res) => {
   } 
   if (city.length === 0) {
     res.status(202).send(["No city matched"]);
+    return
   }
   if (country == undefined) {
     res.status(202).send(["Country undefined"]);
+    return
   }
 
   const cities = city["rows"].map(row => {
@@ -88,6 +92,7 @@ router.get("/converter", async (req, res) => {
   if (reqArr.some(Converter.hasUndefined)) { // return error if any of requests is undefined or empty
     console.log("Empty or undefied in the form");
     res.status(200).send({error: "Please fill in the form"});
+    return
   }
 
   const [attendeeCountryArr, attendeeCityArr] = Converter.parseAttendee(body, attendeeCount);
@@ -107,7 +112,7 @@ router.get("/converter", async (req, res) => {
     res.status(200).send({error: "Please fill in the form"});
     return
   }
-
+  console.log()
   // module
   const converter = (attendeeCount, convertedTimeArr, attendeeTimeZoneArr, userUTCOffset, userIsAheadOfUTC, startOrEndDate) => {
     for (let i = 0; i < attendeeCount; i++) {
