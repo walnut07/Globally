@@ -6,6 +6,21 @@ module.exports =  {
     return elem == undefined || elem === "";
   },
 
+  parseUserData: function (body) {
+    const country = body.country;
+    const city = body.city;
+    const date = body.date;
+    const startTime = body.startTime;
+    const endTime = body.endTime;
+    const attendeeCount = 2
+    let startDate = new Date(date + " " + startTime);
+    let endDate = new Date(date + " " + endTime);
+    startDate = moment(startDate).format("LLL"); // example: August 20, 2022 1:31 PM
+    endDate = moment(endDate).format("LLL");
+
+    return [country, city, startDate, endDate, attendeeCount];
+  },
+
   parseAttendeeData: function (body, attendeeCount) {
     const attendeeCountryArr = [];
     const attendeeCityArr = [];
