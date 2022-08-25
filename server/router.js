@@ -95,15 +95,10 @@ router.get("/converter", async (req, res) => {
     return
   }
 
-  const [attendeeCountryArr, attendeeCityArr] = Converter.parseAttendee(body, attendeeCount);
-
-  // get user's timezone
+  const [attendeeCountryArr, attendeeCityArr] = Converter.parseAttendeeData(body, attendeeCount);
+  
   const userTimeZoneArr = await User.getTimezone(country, city);
-  const userTimeZone = userTimeZoneArr[0];
-  const unformattedUTCOffset = userTimeZone["UTCOffset"];
-  const userUTCOffset = moment(unformattedUTCOffset, "HH:mm:ss").format("HH:mm");
-  const userIsAheadOfUTC = userTimeZone["isAheadOfUTC"];
-
+  const [userUTCOffset, userIsAheadOfUTC] = Converter.formatAttendeeData(userTimeZoneArr);
   let attendeeTimeZoneArr;
   try {
     attendeeTimeZoneArr = await Converter.getAttendeeTimezone(attendeeCount, attendeeCountryArr, attendeeCityArr);
@@ -112,41 +107,9 @@ router.get("/converter", async (req, res) => {
     res.status(200).send({error: "Please fill in the form"});
     return
   }
-  console.log()
-  // module
-  const converter = (attendeeCount, convertedTimeArr, attendeeTimeZoneArr, userUTCOffset, userIsAheadOfUTC, startOrEndDate) => {
-    for (let i = 0; i < attendeeCount; i++) {
-      const attendeeTimeZoneObj = attendeeTimeZoneArr[i];
-      const attendeeUTCOffset = attendeeTimeZoneObj["UTCOffset"];
-      const attendeeIsAheadOfUTC = attendeeTimeZoneObj["IsAheadOfUTC"];
 
-      let attendeeStartDate = startOrEndDate;
-      if (userIsAheadOfUTC && attendeeIsAheadOfUTC) {
-        attendeeStartDate = moment(attendeeStartDate).subtract(moment(userUTCOffset, "HH:mm").hours(), "hour");
-        attendeeStartDate = moment(attendeeStartDate).add(moment(attendeeUTCOffset, "HH:mm").hours(), "hour");
-      } else if (userIsAheadOfUTC && !attendeeIsAheadOfUTC) {
-        attendeeStartDate = moment(attendeeStartDate).subtract(moment(userUTCOffset, "HH:mm").hours(), "hour");
-        attendeeStartDate = moment(attendeeStartDate).subtract(moment(attendeeUTCOffset, "HH:mm").hours(), "hour");
-      } else if (!userIsAheadOfUTC && attendeeIsAheadOfUTC) {
-        attendeeStartDate = moment(attendeeStartDate).add(moment(userUTCOffset, "HH:mm").hours(), "hour");
-        attendeeStartDate = moment(attendeeStartDate).add(moment(attendeeUTCOffset, "HH:mm").hours(), "hour");
-      } else if (!userIsAheadOfUTC && !attendeeIsAheadOfUTC) {
-        attendeeStartDate = moment(attendeeStartDate).add(moment(userUTCOffset, "HH:mm").hours(), "hour");
-        attendeeStartDate = moment(attendeeStartDate).subtract(moment(attendeeUTCOffset, "HH:mm").hours(), "hour");
-      }
-
-    convertedTimeArr.push(attendeeStartDate);
-
-    }
-  }
-
-  // convert start times
-  const convertedStartTimeArr = [];
-  converter(attendeeCount, convertedStartTimeArr, attendeeTimeZoneArr, userUTCOffset, userIsAheadOfUTC, startDate);
-
-  // convert end times
-  const convertedEndTimeArr = [];
-  converter(attendeeCount, convertedEndTimeArr, attendeeTimeZoneArr, userUTCOffset, userIsAheadOfUTC, endDate);
+  const convertedStartTimeArr = Converter.convertTimeZone(attendeeCount, attendeeTimeZoneArr, userUTCOffset, userIsAheadOfUTC, startDate);
+  const convertedEndTimeArr = Converter.convertTimeZone(attendeeCount, attendeeTimeZoneArr, userUTCOffset, userIsAheadOfUTC, endDate);
 
   res.send({convertedStartTime: convertedStartTimeArr, convertedEndTime: convertedEndTimeArr, attendeeCountry: attendeeCountryArr, attendeeCity: attendeeCityArr});
 })
