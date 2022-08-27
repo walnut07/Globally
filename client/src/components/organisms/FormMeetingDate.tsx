@@ -2,6 +2,8 @@
 import { useState, useEffect, HtmlHTMLAttributes } from "react";
 import AreaMolecule from "../molecules/Form/Area";
 import DateMolecule from "../molecules/Form/Date";
+import StartTimeMolecule from "../molecules/Form/StartTime";
+
 import "../Style.css";
 const axios = require('axios')
 const BASE_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8000";
@@ -45,11 +47,9 @@ const FormMeetingDateOrganism: React.FC<Props> = ({title, inputType, isOption}) 
   return (
     <div className={"form-meeting-date"}>
       
-      <AreaMolecule setSelectedCountry={setSelectedCountry} />
-    
-      {isOption && cityForm}
-
+      <AreaMolecule />
       <DateMolecule />
+      <StartTimeMolecule />
 
     </div>
   );
