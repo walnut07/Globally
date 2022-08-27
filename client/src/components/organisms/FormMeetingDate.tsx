@@ -17,14 +17,14 @@ const FormMeetingDateOrganism: React.FC<Props> = ({}) => {
     <form className={"form-meeting-date"}>
       <FormTitle text={"When and where is the meeting held?"} />
       <Container>
-      <Row>
-        <Col><AreaMolecule /></Col>
-      </Row>
-      <Row>
-        <Col><DateMolecule /></Col>
-        <Col><StartTimeMolecule /></Col>
-        <Col><EndTimeMolecule /></Col>
-      </Row>
+        <Row>
+          <Col><AreaMolecule /></Col>
+        </Row>
+        <Row>
+          <Col><DateMolecule /></Col>
+          <Col><StartTimeMolecule /></Col>
+          <Col><EndTimeMolecule /></Col>
+        </Row>
     </Container>
     </form>
   );

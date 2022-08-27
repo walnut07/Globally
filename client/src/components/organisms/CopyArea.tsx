@@ -1,4 +1,5 @@
 import CopyAreaMolecule from "../molecules/CopyArea";
+import "./CopyArea.css";
 
 type Props = {
   attendeeAreas: string[],

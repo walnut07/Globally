@@ -64,7 +64,7 @@ const AreaMolecule: React.FC<Props>  = ({}) => {
 
   return (
     <Container className="area-molecule">
-      <Row>
+      <Row xs={1} md={2}>
         <Col>
           <Form.Group className="mb-3">
             <Form.Label className={"country-label-atom"} htmlFor="area">Country</Form.Label>
