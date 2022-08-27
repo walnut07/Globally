@@ -28,7 +28,7 @@ const Home = () => {
       <FormTimeZone />
       <Convert setIsTimeConverted={setIsTimeConverted} setConvertedStartTime={setConvertedStartTime} setConvertedEndTime={setConvertedEndTime} setAttendeeAreas={setAttendeeAreas} setUserStartTime={setUserstartTime} setUserEndTime={setUserEndTime} setUserDate={setUserDate} setUserArea={setUserArea} />
       <CopyArea attendeeAreas={attendeeAreas} userDate={userDate} userStartTime={userStartTime} userEndTime={userEndTime} userArea={userArea} convertedStartTimes={convertedStartTimes} convertedEndTimes={convertedEndTimes} isTimeConverted={isTimeConverted} />
-      <Save />
+      <Save isTimeConverted={isTimeConverted}/>
     </div>
   );
 };
