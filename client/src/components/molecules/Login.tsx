@@ -4,19 +4,16 @@ import "../Style.css";
 
 type Props = {
   setUser: Function,
-  setToken: Function,
   setIsLoggedIn: Function,
   text: string
 }
 
-const LoginMolecule: React.FC<Props> = ({setUser, setToken, setIsLoggedIn, text}) => {
+const LoginMolecule: React.FC<Props> = ({setUser, setIsLoggedIn, text}) => {
 
   const logInWithGoogle = async () => {
     const provider = new firebase.auth.GoogleAuthProvider()
     const result: any = await auth.signInWithPopup(provider);
-    const token = result.credential.accessToken;
     const user = result.user;
-    setToken(token);
     setUser(user);
     setIsLoggedIn(true);
 }

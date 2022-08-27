@@ -1,4 +1,5 @@
 import Title from "../organisms/Title";
+import Login from "../organisms/Login";
 import FormMeetingDate from "../organisms/FormMeetingDate";
 import FormTimeZone from "../organisms/FormTimeZone";
 import Convert from "../organisms/Convert";
@@ -16,10 +17,14 @@ const Home = () => {
   const [userEndTime, setUserEndTime] = useState<string>("");
   const [userArea, setUserArea] = useState<string>("");
   const [userDate, setUserDate] = useState<string>("");
-  
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [user, setUser] = useState<any>(null);
+  const [token, setToken] = useState<string>("");
+
   return (
     <div className="home-template">
       <Title />
+      <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} user={user} setUser={setUser} setToken={setToken} text={"Log in with Google"} />
       <FormMeetingDate />
       <FormTimeZone />
       <Convert setIsTimeConverted={setIsTimeConverted} setConvertedStartTime={setConvertedStartTime} setConvertedEndTime={setConvertedEndTime} setAttendeeAreas={setAttendeeAreas} setUserStartTime={setUserstartTime} setUserEndTime={setUserEndTime} setUserDate={setUserDate} setUserArea={setUserArea} />

@@ -3,17 +3,18 @@ import "./Form.css";
 
 type Props = {
   isLoggedIn: boolean,
-  setUser: Function,
-  setToken: Function,
   setIsLoggedIn: Function,
+  user: any,
+  setUser: Function,
   text: string
 }
 
-const Login: React.FC<Props>  = ({isLoggedIn, setUser, setToken, setIsLoggedIn, text}) => {
+const Login: React.FC<Props>  = ({isLoggedIn, setIsLoggedIn, user, setUser, text}) => {
 
   return (
     <div className="Login-organism">
-      {!isLoggedIn && <LoginMolecule setUser={setUser} setToken={setToken} setIsLoggedIn={setIsLoggedIn} text={text} /> }
+      {!isLoggedIn && <LoginMolecule setUser={setUser} setIsLoggedIn={setIsLoggedIn} text={text} /> }
+      {isLoggedIn && user && <p>Hi, {user["_delegate"]["displayName"]}!</p>}
     </div>
   );
 };
