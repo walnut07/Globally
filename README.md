@@ -41,10 +41,6 @@
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -63,26 +59,6 @@
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 Globally quickly creates an email template so you can propose a meeting date even the attendees are in a different time zone.
-
-### Persona & User story
-
-**Persona**
-Briana Martin
-<img src="images_doc/persona.jpeg" alt="Logo" width="100" height="100"><br>
-- 34 years old and working in France
-- Working for a trading company that imports many kinds of goods especially from Asia and South America
-
-
-**User story**<br>
-- Title
-She can propose her available date to her clients who live in different time zones.
-
-- Accepetant criteria
-* GIVEN her available time and her clients' time zones
-* WHEN she inputs them
-* THEN she should see the available time in the chosen time zones.
-
-<img src="images/logo.png" alt="Logo" width="80" height="80">
 
 
 ### Built With
@@ -185,19 +161,46 @@ Ready to run the app
   npm run
   ```
 
+## Usage
+
+- Globally was developed to accelarate the speed of arranging a global meeting.
+- Therefore, you can use this app whenever you are arranging a global meeting.
+
+### Persona & User story
+Here's the plan that describes whom this app was built for.
+
+**Persona**
+Briana Martin
+<img src="images_doc/persona.jpeg" alt="Logo" width="100" height="100"><br>
+- 34 years old and working in France
+- Working for a trading company that imports many kinds of goods especially from Asia and South America
+
+
+**User story**<br>
+- Title<br>
+  * She can propose her available date to her clients who live in different time zones.<br>
+
+- Accepetant criteria<br>
+  * GIVEN her available time and her clients' time zones
+  * WHEN she inputs them
+  * THEN she should see the available time in the chosen time zones.
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- [x] The app takes in meeting dates in user's time zone and also attendee's timezones
+- [x] The app converts the meeting timezones
+- [x] The app displays the converted timezones to the UI
+- [x] Users can log in with their Google account
+- [x] CD/CI to Heroku
+- [x] The app displays the converted timezones to the UI
+- [x] React components are organized with the principals of Atomic Design
+- [x] Code in Express Router is modularized
+- [x] The app displays the converted timezones to the UI
+- [x] The app is resonsive with React Bootstrap
+- [ ] Users can save their meeting time in MongoDB
+    - Work-in-progress
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+See the [open issues](https://github.com/walnut07/Globally/issues) for a full list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 ## Contributing
