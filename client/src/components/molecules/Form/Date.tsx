@@ -7,9 +7,10 @@ type Props = {
 const DateMolecule: React.FC<Props>  = ({}) => {
 
   return (
-    <label className={"date-molecule"} htmlFor="date">
-      <input type="date" name="date" />
-    </label>
+    <div className="date-molecule">
+      <label className={"date-molecule"} htmlFor="date">Date</label>
+        <input type="date" name="date" />
+    </div>
   );
 };
 
