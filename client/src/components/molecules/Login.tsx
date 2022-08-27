@@ -9,7 +9,7 @@ type Props = {
   text: string
 }
 
-const Login: React.FC<Props> = ({setUser, setToken, setIsLoggedIn, text}) => {
+const LoginMolecule: React.FC<Props> = ({setUser, setToken, setIsLoggedIn, text}) => {
 
   const logInWithGoogle = async () => {
     const provider = new firebase.auth.GoogleAuthProvider()
@@ -27,4 +27,4 @@ const Login: React.FC<Props> = ({setUser, setToken, setIsLoggedIn, text}) => {
   )
 }
 
-export default Login;
+export default LoginMolecule;
