@@ -1,5 +1,8 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 type Props = {
   attendeeAreas: string[],
@@ -38,9 +41,13 @@ const CopyAreaMolecule: React.FC<Props>  = ({attendeeAreas, userDate, userStartT
     if (isTimeConverted) {
       const text = formatTime(convertedStartTimes, convertedEndTimes, attendeeAreas);
       const copyArea = 
-        <div className="copyAreaWrapper">
-          <textarea value={text} id="textarea"/>
-        </div>
+        <FloatingLabel controlId="floatingTextarea2" className="copyAreaWrapper sm" label={undefined}>
+          <Form.Control
+          as="textarea"
+          value={text}
+          style={{ height: '130px' }}
+        />
+        </FloatingLabel>
       setCopyArea(copyArea);
     }
   }, [isTimeConverted])
