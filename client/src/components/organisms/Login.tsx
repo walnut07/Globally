@@ -1,5 +1,4 @@
 import LoginMolecule from "../molecules/Login";
-import "./Form.css";
 
 type Props = {
   isLoggedIn: boolean,

@@ -1,5 +1,5 @@
 import Selector from "./Selector";
-import "../Style.css";
+import "./Style.css";
 
 const AttendeeTimeZoneContainer = () => {
   return (

@@ -1,6 +1,5 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
-import "./Form.css";
 
 type Props = {
   attendeeAreas: string[],

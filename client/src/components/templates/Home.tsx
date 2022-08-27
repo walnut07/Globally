@@ -5,7 +5,7 @@ import FormTimeZone from "../organisms/FormTimeZone";
 import Convert from "../organisms/Convert";
 import CopyArea from "../organisms/CopyArea";
 import Save from "../organisms/Save";
-import "../Style.css";
+import "./Style.css";
 import { useState } from "react";
 
 const Home = () => {
@@ -19,12 +19,11 @@ const Home = () => {
   const [userDate, setUserDate] = useState<string>("");
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [user, setUser] = useState<any>(null);
-  const [token, setToken] = useState<string>("");
 
   return (
     <div className="home-template">
       <Title />
-      <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} user={user} setUser={setUser} setToken={setToken} text={"Log in with Google"} />
+      <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} user={user} setUser={setUser} text={"Log in with Google"} />
       <FormMeetingDate />
       <FormTimeZone />
       <Convert setIsTimeConverted={setIsTimeConverted} setConvertedStartTime={setConvertedStartTime} setConvertedEndTime={setConvertedEndTime} setAttendeeAreas={setAttendeeAreas} setUserStartTime={setUserstartTime} setUserEndTime={setUserEndTime} setUserDate={setUserDate} setUserArea={setUserArea} />

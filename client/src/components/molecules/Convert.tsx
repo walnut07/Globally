@@ -1,5 +1,4 @@
 import axios from "axios";
-import "./Form.css";
 
 type Props = {
   setIsTimeConverted: Function,
@@ -12,32 +11,31 @@ type Props = {
   setUserArea: Function,
 }
 
-const ConvertMolecule: React.FC<Props>  = ({setIsTimeConverted: setIsDataCollected, setConvertedStartTime, 
+const ConvertMolecule: React.FC<Props>  = ({setIsTimeConverted, setConvertedStartTime, 
   setConvertedEndTime, setAttendeeAreas, setUserStartTime: setUserstartTime, setUserEndTime, setUserDate, setUserArea,}) => {
 
   const BASE_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8000";
   
   const handleSubmit = () => {
-    setIsDataCollected(false);
-
-    const userForm = document.forms[0];
-    const country = userForm.Area[0].value;
-    const city = userForm.Area[1].value;
-    const date = userForm.Date.value;
-    const startTime = userForm["Start time"].value;
-    const endTime = userForm["End time"].value;
-
+    setIsTimeConverted(false);
+    
+    const userForm:any = document.forms[0];
+    const country = userForm[0].value;
+    const city = userForm[1].value;
+    const date = userForm[2].value;
+    const startTime = userForm[3].value
+    const endTime = userForm[4].value
     const area = `${city}, ${country}`
     setUserArea(area);
     setUserDate(date);
     setUserstartTime(startTime);
     setUserEndTime(endTime);
-    
-    const attendeeForm = document.forms[1];
-    const attendeeCountry1 = attendeeForm.Area[0].value;
-    const attendeeCity1 = attendeeForm.Area[1].value;
-    const attendeeCountry2 = attendeeForm.Area[2].value;
-    const attendeeCity2 = attendeeForm.Area[3].value;
+
+    const attendeeForm:any = document.forms[1];
+    const attendeeCountry1 = attendeeForm[0].value;
+    const attendeeCity1 = attendeeForm[1].value;
+    const attendeeCountry2 = attendeeForm[2].value;
+    const attendeeCity2 = attendeeForm[3].value;
 
     axios.get(`${BASE_URL}/converter`, {
       params: {
@@ -70,7 +68,7 @@ const ConvertMolecule: React.FC<Props>  = ({setIsTimeConverted: setIsDataCollect
       setConvertedStartTime(convertedStartTimes);
       setConvertedEndTime(convertedEndTimes);
 
-      setIsDataCollected(true);
+      setIsTimeConverted(true);
     })
   }
 

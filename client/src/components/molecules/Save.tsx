@@ -1,5 +1,3 @@
-import "../Style.css";
-
 const Save = () => {
   return (
     <div className="save-molecule">

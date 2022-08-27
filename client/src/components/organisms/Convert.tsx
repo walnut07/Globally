@@ -1,5 +1,4 @@
 import ConvertMolecule from "../molecules/Convert";
-import "../Style.css";
 
 type Props = {
   setIsTimeConverted: Function,
