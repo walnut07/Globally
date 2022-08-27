@@ -1,8 +1,12 @@
 import SaveMolecule from "../molecules/Save";
 
-const Save = () => {
+type Props = {
+  isTimeConverted: boolean
+}
+
+const Save: React.FC<Props>  = ({isTimeConverted}) => {
   return (
-    <SaveMolecule />
+    <SaveMolecule isTimeConverted={isTimeConverted}/>
   );
 };
 

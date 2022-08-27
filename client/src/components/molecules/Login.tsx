@@ -1,5 +1,7 @@
 import firebase from 'firebase/compat/app';
 import {auth} from "../../services/firebase"
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 type Props = {
   setUser: Function,
@@ -18,7 +20,7 @@ const LoginMolecule: React.FC<Props> = ({setUser, setIsLoggedIn, text}) => {
 }
   return (
     <div className='login-molecule'>
-      <button className="login-button" onClick={logInWithGoogle}>{text}</button>
+      <Button variant="outline-secondary" size="sm" className="login-button" onClick={logInWithGoogle}>{text}</Button>
     </div>
   )
 }
