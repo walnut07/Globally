@@ -1,5 +1,6 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
+import formatTimeToDisplay from "./helper/formatTimeToDisplay";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,27 +20,11 @@ const CopyAreaMolecule: React.FC<Props>  = ({attendeeAreas, userDate, userStartT
   userArea, convertedStartTimes, convertedEndTimes, isTimeConverted}) => {
 
   const [copyArea, setCopyArea] = useState<JSX.Element|null>(null);
-  
-  const formatTime = (convertedStartTimes: string[], convertedEndTimes: string[], attendeeAreas: string[]) :string =>  {
-    const startTime = moment(`${userDate} ${userStartTime}`).format("YYYY-MM-DD hh:mm a");
-    const endTime = moment(`${userDate} ${userEndTime}`).format("YYYY-MM-DD hh:mm a");
-
-    let text = `Can we talk in the following time slot? \n\n`;
-    text += `${startTime} ~ ${endTime} (${userArea}) \n`;
-
-    for (let i = 0; i < convertedStartTimes.length; i++) {
-      const convertedStartTime = moment(convertedStartTimes[i]).format("YYYY-MM-DD hh:mm a");
-      const convertedEndTime = moment(convertedEndTimes[i]).format("YYYY-MM-DD hh:mm a");
-      text += ` - ${convertedStartTime} ~ ${convertedEndTime}`;
-      text += ` (${attendeeAreas[i]}) \n`;
-    }
-
-    return text;
-  }
 
   useEffect(() => {
     if (isTimeConverted) {
-      const text = formatTime(convertedStartTimes, convertedEndTimes, attendeeAreas);
+      const text = formatTimeToDisplay(convertedStartTimes, convertedEndTimes, attendeeAreas,
+         userDate, userStartTime, userEndTime, userArea);
       const copyArea = 
         <FloatingLabel controlId="floatingTextarea2" className="copyAreaWrapper sm" label={undefined}>
           <Form.Control
