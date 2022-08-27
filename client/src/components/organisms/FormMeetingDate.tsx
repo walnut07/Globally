@@ -1,6 +1,7 @@
 // import "./Header.css";
 import { useState, useEffect, HtmlHTMLAttributes } from "react";
 import AreaMolecule from "../molecules/Form/Area";
+import DateMolecule from "../molecules/Form/Date";
 import "../Style.css";
 const axios = require('axios')
 const BASE_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8000";
@@ -48,9 +49,7 @@ const FormMeetingDateOrganism: React.FC<Props> = ({title, inputType, isOption}) 
     
       {isOption && cityForm}
 
-      {!isOption && 
-        <input type={inputType} name={title} />
-      }
+      <DateMolecule />
 
     </div>
   );
