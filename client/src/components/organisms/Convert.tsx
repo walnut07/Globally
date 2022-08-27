@@ -17,7 +17,7 @@ const FormMeetingDateOrganism: React.FC<Props> = ({setIsDataCollected, setConver
   
   return (
     <div className={"convert-organism"}>
-      <ConvertMolecule setIsDataCollected={setIsDataCollected} setConvertedStartTime={setConvertedStartTime} 
+      <ConvertMolecule setIsTimeConverted={setIsDataCollected} setConvertedStartTime={setConvertedStartTime} 
         setConvertedEndTime={setConvertedEndTime} setAttendeeAreas={setAttendeeAreas} setUserStartTime={setUserstartTime}
         setUserEndTime={setUserEndTime} setUserDate={setUserDate} setUserArea={setUserArea} />
     </div>

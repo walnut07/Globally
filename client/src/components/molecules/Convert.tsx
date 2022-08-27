@@ -2,7 +2,7 @@ import axios from "axios";
 import "./Form.css";
 
 type Props = {
-  setIsDataCollected: Function,
+  setIsTimeConverted: Function,
   setConvertedStartTime: Function,
   setConvertedEndTime: Function
   setAttendeeAreas: Function
@@ -12,7 +12,7 @@ type Props = {
   setUserArea: Function,
 }
 
-const ConvertMolecule: React.FC<Props>  = ({setIsDataCollected, setConvertedStartTime, 
+const ConvertMolecule: React.FC<Props>  = ({setIsTimeConverted: setIsDataCollected, setConvertedStartTime, 
   setConvertedEndTime, setAttendeeAreas, setUserStartTime: setUserstartTime, setUserEndTime, setUserDate, setUserArea,}) => {
 
   const BASE_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8000";
