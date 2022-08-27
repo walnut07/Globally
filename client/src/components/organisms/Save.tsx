@@ -1,12 +1,21 @@
 import SaveMolecule from "../molecules/Save";
+import Login from "../molecules/Login";
 
 type Props = {
-  isTimeConverted: boolean
+  isTimeConverted: boolean,
+  isLoggedIn: boolean,
+  setUser: Function,
+  setIsLoggedIn: Function
 }
 
-const Save: React.FC<Props>  = ({isTimeConverted}) => {
+const Save: React.FC<Props>  = ({isTimeConverted, isLoggedIn, setUser, setIsLoggedIn}) => {
   return (
-    <SaveMolecule isTimeConverted={isTimeConverted}/>
+    <>
+      {isTimeConverted && isLoggedIn &&
+        <SaveMolecule isTimeConverted={isTimeConverted}/>}
+      {isTimeConverted && !isLoggedIn &&
+        <Login setUser={setUser} setIsLoggedIn={setIsLoggedIn} text={"Log in and save the meeting date"} />}
+    </>
   );
 };
 
