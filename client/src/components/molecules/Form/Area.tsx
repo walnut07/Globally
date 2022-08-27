@@ -1,26 +1,23 @@
-// import "./Header.css";
-import { useState, useEffect, HtmlHTMLAttributes } from "react";
-import "../Style.css";
-const axios = require('axios')
-const BASE_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8000";
+import axios, { AxiosResponse } from "axios";
+import { useEffect, useState } from "react";
+import "./Form.css";
 
 type Props = {
-  className?: string,
-  title: string,
-  inputType: string,
-  isOption: boolean
+
 }
 
-const Selector: React.FC<Props> = ({title, inputType, isOption}) => {
+const AreaMolecule: React.FC<Props>  = ({}) => {
   const [cities, setCities] = useState<string[]>([]);
   const [countries, setCountries] = useState<string[]>([]);
   const [selectedCountry, setSelectedCountry] = useState<string>("");
   const [cityForm, setCityForm] = useState<any>();
-  
+
+  const BASE_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8000";
+
   // get country data on initial load
   useEffect(() => {
     axios.get(`${BASE_URL}/country`)
-    .then((res: any) => {
+    .then((res: AxiosResponse<any, any>) => {
       const unsortedCountries = res.data;
       const sortedCountries = unsortedCountries.sort();
       setCountries(sortedCountries);
@@ -30,12 +27,13 @@ const Selector: React.FC<Props> = ({title, inputType, isOption}) => {
     });
   }, []);
 
-  // get city data on change of country selection
-  const getCity = (e: any) =>  {
+  // trigger for getting city data
+  const getCity = (e: React.ChangeEvent<HTMLSelectElement>) =>  {
     const country = e.target.value;
     setSelectedCountry(country);
   }
 
+  // fetch city data once a country is selected
   useEffect(() => {
     axios.get(`${BASE_URL}/city/?country=${selectedCountry}`)
     .then((res: any) => {
@@ -51,7 +49,7 @@ const Selector: React.FC<Props> = ({title, inputType, isOption}) => {
   // make cities appear once fetching city data
   useEffect(() => {
     const select = 
-      <select name={title} className={title}> 
+      <select name="city" className="city-select-atom"> 
         {cities.map(city => {
           return <option value={city}>{city}</option>
         })}
@@ -59,28 +57,19 @@ const Selector: React.FC<Props> = ({title, inputType, isOption}) => {
     setCityForm(select);
   }, [cities])
 
-  
   return (
-    <div className={`${title} form-div`}>
-      
-      <label htmlFor={title}>{title}</label>
-
-      {isOption && 
-        <select name={title} onChange={getCity} className={`${title}`} defaultValue={"Select"}> 
+    <div className="area-molecule">
+      <label className={"country-label-atom"} htmlFor="area">Country</label>
+      <select name="area" onChange={getCity} className={"area-select-atom"}> 
           {countries.map(country => {
             return <option value={country}>{country}</option>
           })}
-        </select>
-      }
-    
-      {isOption && cityForm}
+      </select>
 
-      {!isOption && 
-        <input type={inputType} name={title} />
-      }
-
+      <label className={"city-label-atom"} htmlFor="city">City</label>
+      {cityForm}
     </div>
   );
 };
 
-export default Selector;
+export default AreaMolecule;

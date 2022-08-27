@@ -1,10 +1,9 @@
-import React from "react";
-import "../Style.css";
+import HeaderMolecule from "../molecules/Title";
 
 const Header = () => {
   return (
     <header>
-      <h1>Globally</h1>
+      <HeaderMolecule/>
     </header>
   );
 };
