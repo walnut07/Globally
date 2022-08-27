@@ -29,7 +29,7 @@ const CopyAreaMolecule: React.FC<Props>  = ({attendeeAreas, userDate, userStartT
         <FloatingLabel controlId="floatingTextarea2" className="copyAreaWrapper sm" label={undefined}>
           <Form.Control
           as="textarea"
-          value={text}
+          defaultValue={text}
           style={{ height: '130px' }}
         />
         </FloatingLabel>
