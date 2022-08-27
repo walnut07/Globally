@@ -1,4 +1,6 @@
-import "./Form.css";
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 type Props = {
 
@@ -8,8 +10,14 @@ const EndTimeMolecule: React.FC<Props>  = ({}) => {
 
   return (
     <div className="end-time-molecule">
-      <label className={"endTime-molecule"} htmlFor="end time">End time</label>
-        <input type="time" name="end time" />
+      <InputGroup size="sm" className="mb-3">
+        <InputGroup.Text id="inputGroup-sizing-sm">End Time</InputGroup.Text>
+        <Form.Control
+          aria-label="End Time"
+          aria-describedby="inputGroup-sizing-sm"
+          type="time"
+        />
+     </InputGroup>
     </div>
   );
 };

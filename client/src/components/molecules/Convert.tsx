@@ -1,4 +1,6 @@
 import axios from "axios";
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 type Props = {
   setIsTimeConverted: Function,
@@ -73,8 +75,8 @@ const ConvertMolecule: React.FC<Props>  = ({setIsTimeConverted, setConvertedStar
   }
 
   return (
-    <div className="convert-molecule">
-      <button type="button" onClick={handleSubmit} className="convert">Convert</button>
+    <div className="convert-molecule d-grid gap-2">
+      <Button variant="primary" size="lg" type="button" onClick={handleSubmit} className="convert-button-atom">Convert</Button>
     </div>
   );
 };

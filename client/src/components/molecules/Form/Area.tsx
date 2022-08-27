@@ -1,6 +1,11 @@
 import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import "./Form.css";
+import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 type Props = {
 
@@ -49,26 +54,35 @@ const AreaMolecule: React.FC<Props>  = ({}) => {
   // make cities appear once fetching city data
   useEffect(() => {
     const select = 
-      <select name="city" className="city-select-atom"> 
+      <Form.Select name="city" className="city-select-atom" size="sm"> 
         {cities.map(city => {
           return <option value={city}>{city}</option>
         })}
-    </select>
+    </Form.Select>
     setCityForm(select);
   }, [cities])
 
   return (
-    <div className="area-molecule">
-      <label className={"country-label-atom"} htmlFor="area">Country</label>
-      <select name="area" onChange={getCity} className={"area-select-atom"}> 
-          {countries.map(country => {
-            return <option value={country}>{country}</option>
-          })}
-      </select>
-
-      <label className={"city-label-atom"} htmlFor="city">City</label>
-      {cityForm}
-    </div>
+    <Container className="area-molecule">
+      <Row xs={1} md={2}>
+        <Col>
+          <Form.Group className="mb-3">
+            <Form.Label className={"country-label-atom"} htmlFor="area">Country</Form.Label>
+            <Form.Select name="area" onChange={getCity} className={"area-select-atom"} size="sm"> 
+                {countries.map(country => {
+                  return <option value={country}>{country}</option>
+                })}
+            </Form.Select>
+          </Form.Group>
+        </Col>
+        <Col>
+          <Form.Group className="mb-3">
+            <Form.Label className={"city-label-atom"} htmlFor="city">City</Form.Label>
+            {cityForm}
+          </Form.Group>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
