@@ -26,10 +26,6 @@ const FormMeetingDateOrganism: React.FC<Props> = ({}) => {
         <Col><EndTimeMolecule /></Col>
       </Row>
     </Container>
-      {/* <AreaMolecule />
-      <DateMolecule />
-      <StartTimeMolecule />
-      <EndTimeMolecule /> */}
     </form>
   );
 };
