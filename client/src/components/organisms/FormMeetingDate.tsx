@@ -3,6 +3,7 @@ import { useState, useEffect, HtmlHTMLAttributes } from "react";
 import AreaMolecule from "../molecules/Form/Area";
 import DateMolecule from "../molecules/Form/Date";
 import StartTimeMolecule from "../molecules/Form/StartTime";
+import EndTimeMolecule from "../molecules/Form/EndTime";
 
 import "../Style.css";
 const axios = require('axios')
@@ -46,11 +47,10 @@ const FormMeetingDateOrganism: React.FC<Props> = ({title, inputType, isOption}) 
   
   return (
     <div className={"form-meeting-date"}>
-      
       <AreaMolecule />
       <DateMolecule />
       <StartTimeMolecule />
-
+      <EndTimeMolecule />
     </div>
   );
 };
