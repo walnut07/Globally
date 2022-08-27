@@ -2,7 +2,7 @@ import ConvertMolecule from "../molecules/Convert";
 import "../Style.css";
 
 type Props = {
-  setIsDataCollected: Function,
+  setIsTimeConverted: Function,
   setConvertedStartTime: Function,
   setConvertedEndTime: Function
   setAttendeeAreas: Function
@@ -12,7 +12,7 @@ type Props = {
   setUserArea: Function,
 }
 
-const FormMeetingDateOrganism: React.FC<Props> = ({setIsDataCollected, setConvertedStartTime, 
+const FormMeetingDateOrganism: React.FC<Props> = ({setIsTimeConverted: setIsDataCollected, setConvertedStartTime, 
   setConvertedEndTime, setAttendeeAreas, setUserStartTime: setUserstartTime, setUserEndTime, setUserDate, setUserArea}) => {
   
   return (
