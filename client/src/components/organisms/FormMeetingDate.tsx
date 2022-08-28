@@ -15,7 +15,7 @@ const FormMeetingDateOrganism: React.FC<Props> = ({}) => {
   
   return (
     <form className={"form-meeting-date"}>
-      <FormTitle text={"When and where is the meeting held?"} />
+      <FormTitle text={"When and where is the meeting?"} />
       <Container>
         <Row>
           <Col><AreaMolecule /></Col>
